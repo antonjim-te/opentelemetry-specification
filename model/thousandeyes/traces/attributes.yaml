@@ -1,0 +1,215 @@
+groups:
+  - id: registry.thousandeyes.traces.resource_attributes
+    type: attribute_group
+    brief: Resource attributes for ThousandEyes traces.
+    attributes:
+      - id: meta.signal_type
+        type: string
+        stability: development
+        brief: OpenTelemetry signal type.
+        examples: ["trace"]
+      - id: service.name
+        type: string
+        stability: development
+        brief: Name of the service.
+        examples: ["thousandeyes"]
+      - id: thousandeyes.stream.id
+        type: string
+        stability: development
+        brief: UUID of the integration used to route the datapoint.
+        examples: ["123e4567-e89b-12d3-a456-426614174000"]
+      - id: thousandeyes.account.id
+        type: string
+        stability: development
+        brief: The ID of the account that the telemetry data is associated with.
+        examples: ["987654"]
+      - id: thousandeyes.data.version
+        type: string
+        stability: development
+        brief: Specifies the version of the data model.
+        examples: ["v2"]
+      - id: thousandeyes.permalink
+        type: string
+        stability: development
+        brief: ThousandEyes test permalink.
+        examples: ["https://app.thousandeyes.com/tests/12345"]
+      - id: thousandeyes.source.agent.id
+        type: string
+        stability: development
+        brief: Identifies the ThousandEyes agent that ran the test.
+        examples: ["12345"]
+      - id: thousandeyes.source.agent.location
+        type: string
+        stability: development
+        brief: Location of the ThousandEyes source agent.
+        examples: ["San Jose, CA, US"]
+      - id: thousandeyes.source.agent.name
+        type: string
+        stability: development
+        brief: Name of the ThousandEyes source agent.
+        examples: ["us-west-1a"]
+      - id: thousandeyes.source.agent.geoname.id
+        type: string
+        stability: development
+        brief: The GeoNames ID of the ThousandEyes source agent that ran the test.
+        examples: ["5392171"]
+      - id: thousandeyes.source.agent.geo.region.iso_code
+        type: string
+        stability: development
+        brief: ISO code for the region where the source agent is located.
+        examples: ["US-CA"]
+      - id: thousandeyes.source.agent.geo.country.iso_code
+        type: string
+        stability: development
+        brief: ISO code for the country where the source agent is located.
+        examples: ["US"]
+      - id: thousandeyes.test.domain
+        type: string
+        stability: development
+        brief: Identifies the origin of the test data.
+        examples: ["cea"]
+      - id: thousandeyes.test.id
+        type: string
+        stability: development
+        brief: Identifies the ThousandEyes test.
+        examples: ["246810"]
+      - id: thousandeyes.test.name
+        type: string
+        stability: development
+        brief: Name of the ThousandEyes test.
+        examples: ["Checkout flow trace"]
+      - id: thousandeyes.test.type
+        type: string
+        stability: development
+        brief: Identifies the type of test.
+        examples: ["page-load", "web-transactions", "api"]
+
+  - id: registry.thousandeyes.traces.span_attributes
+    type: attribute_group
+    brief: Span attributes for ThousandEyes traces.
+    attributes:
+      - id: http.request.method
+        type: string
+        stability: development
+        brief: HTTP request method.
+        examples: ["GET"]
+      - id: http.response.code
+        type: int
+        stability: development
+        brief: HTTP response code.
+      - id: server.address
+        type: string
+        stability: development
+        brief: Server address.
+        examples: ["example.com"]
+      - id: server.port
+        type: int
+        stability: development
+        brief: Server port.
+      - id: url.full
+        type: string
+        stability: development
+        brief: Full URL of the request.
+        examples: ["https://example.com/login"]
+      - id: step
+        type: int
+        stability: development
+        brief: Step ID for API tests.
+        examples: [3]
+
+  - id: entity.thousandeyes.trace.signal
+    type: entity
+    name: thousandeyes.trace.signal
+    brief: Signal identity for ThousandEyes traces.
+    stability: development
+    attributes:
+      - ref: meta.signal_type
+        requirement_level: required
+        role: identifying
+
+  - id: entity.thousandeyes.trace.service
+    type: entity
+    name: thousandeyes.trace.service
+    brief: Service identity associated with ThousandEyes traces.
+    stability: development
+    attributes:
+      - ref: service.name
+        requirement_level: required
+        role: identifying
+
+  - id: entity.thousandeyes.stream
+    type: entity
+    name: thousandeyes.stream
+    brief: ThousandEyes integration stream carrying traces.
+    stability: development
+    attributes:
+      - ref: thousandeyes.stream.id
+        requirement_level: required
+        role: identifying
+
+  - id: entity.thousandeyes.account
+    type: entity
+    name: thousandeyes.account
+    brief: ThousandEyes account producing traces.
+    stability: development
+    attributes:
+      - ref: thousandeyes.account.id
+        requirement_level: required
+        role: identifying
+
+  - id: entity.thousandeyes.test
+    type: entity
+    name: thousandeyes.test
+    brief: ThousandEyes test context for trace spans.
+    stability: development
+    attributes:
+      - ref: thousandeyes.test.id
+        requirement_level: required
+        role: identifying
+      - ref: thousandeyes.test.name
+        role: descriptive
+      - ref: thousandeyes.test.type
+        role: descriptive
+      - ref: thousandeyes.test.domain
+        role: descriptive
+      - ref: thousandeyes.data.version
+        role: descriptive
+      - ref: thousandeyes.permalink
+        role: descriptive
+
+  - id: entity.thousandeyes.source.agent
+    type: entity
+    name: thousandeyes.source.agent
+    brief: Source agent that ran the ThousandEyes trace test.
+    stability: development
+    attributes:
+      - ref: thousandeyes.source.agent.id
+        requirement_level: required
+        role: identifying
+      - ref: thousandeyes.source.agent.name
+        role: descriptive
+      - ref: thousandeyes.source.agent.location
+        role: descriptive
+      - ref: thousandeyes.source.agent.geoname.id
+        role: descriptive
+      - ref: thousandeyes.source.agent.geo.region.iso_code
+        role: descriptive
+      - ref: thousandeyes.source.agent.geo.country.iso_code
+        role: descriptive
+
+  - id: span_attributes.thousandeyes.traces.common
+    type: attribute_group
+    brief: Common span attributes for ThousandEyes traces.
+    attributes:
+      - ref: http.request.method
+      - ref: http.response.code
+      - ref: server.address
+      - ref: server.port
+      - ref: url.full
+
+  - id: span_attributes.thousandeyes.traces.api
+    type: attribute_group
+    brief: Span attributes for ThousandEyes API test traces.
+    extends: span_attributes.thousandeyes.traces.common
+    attributes:
+      - ref: step

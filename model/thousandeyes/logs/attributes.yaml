@@ -1,0 +1,86 @@
+groups:
+  - id: registry.thousandeyes.logs.resource_attributes.common
+    type: attribute_group
+    brief: Common resource attributes for ThousandEyes activity logs.
+    attributes:
+      - id: thousandeyes.stream.id
+        type: string
+        stability: development
+        brief: UUID of the integration used to route the datapoint.
+        examples: ["123e4567-e89b-12d3-a456-426614174000"]
+      - id: thousandeyes.account.id
+        type: string
+        stability: development
+        brief: The ID of the account that the telemetry data is associated with.
+        examples: ["987654"]
+      - id: thousandeyes.data.version
+        type: string
+        stability: development
+        brief: The version of the data model.
+        examples: ["v2"]
+
+  - id: registry.thousandeyes.logs.resource_attributes.specific
+    type: attribute_group
+    brief: Specific resource attributes for ThousandEyes activity logs.
+    attributes:
+      - id: thousandeyes.account.name
+        type: string
+        stability: development
+        brief: The name of the account that the telemetry data is associated with.
+        examples: ["Example Account"]
+
+  - id: registry.thousandeyes.logs.log_attributes
+    type: attribute_group
+    brief: Specific log attributes for ThousandEyes activity logs.
+    attributes:
+      - id: thousandeyes.user.id
+        type: string
+        stability: development
+        brief: The ID of the user that performed the action tracked by the log.
+        examples: ["123456"]
+      - id: thousandeyes.user.name
+        type: string
+        stability: development
+        brief: The name of the user that performed the action tracked by the log.
+        examples: ["jane.doe"]
+      - id: thousandeyes.user.email
+        type: string
+        stability: development
+        brief: The email of the user that performed the action tracked by the log.
+        examples: ["jane.doe@example.com"]
+      - id: thousandeyes.user.address
+        type: string
+        stability: development
+        brief: The IP address of the user that performed the action tracked by the log.
+        examples: ["203.0.113.10"]
+      - id: thousandeyes.activitylog.resources
+        type: string
+        stability: development
+        brief: The comma-separated list of ThousandEyes Platform resources associated with the action tracked by the log.
+        examples: ["test:1234,agent:5678"]
+
+  - id: entity.thousandeyes.stream
+    type: entity
+    name: thousandeyes.stream
+    brief: ThousandEyes integration stream carrying activity logs.
+    stability: development
+    attributes:
+      - ref: thousandeyes.stream.id
+        requirement_level: required
+        role: identifying
+      - ref: thousandeyes.data.version
+        requirement_level: required
+        role: descriptive
+
+  - id: entity.thousandeyes.account
+    type: entity
+    name: thousandeyes.account
+    brief: ThousandEyes account associated with the activity logs.
+    stability: development
+    attributes:
+      - ref: thousandeyes.account.id
+        requirement_level: required
+        role: identifying
+      - ref: thousandeyes.account.name
+        requirement_level: recommended
+        role: descriptive

@@ -1,0 +1,48 @@
+groups:
+  - id: span.thousandeyes.page_load
+    type: span
+    span_kind: client
+    stability: development
+    brief: Span emitted for ThousandEyes page load test traces.
+    note: >
+      This span models the trace layer emitted by ThousandEyes page load tests.
+    extends: span_attributes.thousandeyes.traces.common
+    entity_associations:
+      - thousandeyes.trace.signal
+      - thousandeyes.trace.service
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+
+  - id: span.thousandeyes.transaction
+    type: span
+    span_kind: client
+    stability: development
+    brief: Span emitted for ThousandEyes transaction test traces.
+    note: >
+      This span models the trace layer emitted by ThousandEyes transaction tests.
+    extends: span_attributes.thousandeyes.traces.common
+    entity_associations:
+      - thousandeyes.trace.signal
+      - thousandeyes.trace.service
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+
+  - id: span.thousandeyes.api
+    type: span
+    span_kind: client
+    stability: development
+    brief: Span emitted for ThousandEyes API test traces.
+    note: >
+      This span models the trace layer emitted by ThousandEyes API tests.
+    extends: span_attributes.thousandeyes.traces.api
+    entity_associations:
+      - thousandeyes.trace.signal
+      - thousandeyes.trace.service
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent

@@ -1,0 +1,23 @@
+groups:
+  - id: log_attributes.thousandeyes.activity_log
+    type: attribute_group
+    brief: Specific attributes for ThousandEyes activity log records.
+    attributes:
+      - ref: thousandeyes.user.id
+      - ref: thousandeyes.user.name
+      - ref: thousandeyes.user.email
+      - ref: thousandeyes.user.address
+      - ref: thousandeyes.activitylog.resources
+
+  - id: event.thousandeyes.activity.log
+    type: event
+    name: thousandeyes.activity.log
+    brief: Activity log records emitted by ThousandEyes.
+    note: >
+      This log record uses the standard OpenTelemetry log fields `Body`,
+      `Timestamp`, `ObservedTimestamp`, `SeverityText`, and `SeverityNumber`.
+    stability: development
+    extends: log_attributes.thousandeyes.activity_log
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account

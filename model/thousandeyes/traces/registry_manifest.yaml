@@ -1,0 +1,4 @@
+name: thousandeyes-traces
+description: ThousandEyes traces semantic conventions.
+semconv_version: 0.1.0
+schema_base_url: https://example.com/schemas/thousandeyes/traces/
