@@ -1,0 +1,66 @@
+groups:
+  - id: metric.http.metrics.availability
+    type: metric
+    metric_name: http.metrics.availability
+    brief: Calculated depending on the errors reported during the test. In case there is any error, the availability is 0, otherwise 100%.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.http_server
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.http.metrics.throughput
+    type: metric
+    metric_name: http.metrics.throughput
+    brief: Throughput of test in bytes per second.
+    instrument: gauge
+    unit: "B/s"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.http_server
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.http.metrics.response.time
+    type: metric
+    metric_name: http.metrics.response.time
+    brief: Time to first byte to execute the request.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.http_server
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.net.metrics.latency
+    type: metric
+    metric_name: net.metrics.latency
+    brief: The maximum round trip time for the packets sent to the target.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.network
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.net.metrics.loss
+    type: metric
+    metric_name: net.metrics.loss
+    brief: Packet loss.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.network
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.net.metrics.jitter
+    type: metric
+    metric_name: net.metrics.jitter
+    brief: Standard deviation for the round trip times.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.network
+    entity_associations:
+      - thousandeyes.stream

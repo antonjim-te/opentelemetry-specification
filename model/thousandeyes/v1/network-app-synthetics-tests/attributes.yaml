@@ -1,0 +1,453 @@
+groups:
+  - id: registry.thousandeyes.v1.resource_attributes
+    type: attribute_group
+    brief: Common resource attributes for ThousandEyes Data Model v1 metrics.
+    attributes:
+      - id: thousandeyes.stream.id
+        type: string
+        stability: development
+        brief: ID of the integration used to route the datapoint to the external service.
+        examples: ["123e4567-e89b-12d3-a456-426614174000"]
+      - id: thousandeyes.data.version
+        type: string
+        stability: development
+        brief: Specifies the version of the data model.
+        examples: ["v1"]
+
+  - id: registry.thousandeyes.v1.common_metric_attributes
+    type: attribute_group
+    brief: Common metric attributes for ThousandEyes Data Model v1 metrics.
+    attributes:
+      - id: test.domain
+        type: string
+        stability: development
+        brief: Origin of the test data.
+        examples: ["cea", "endpoint"]
+      - id: test.type
+        type: string
+        stability: development
+        brief: ThousandEyes test type.
+        examples: ["agent-to-agent", "agent-to-server", "dns-server", "web-transactions", "page-load", "api"]
+      - id: test.name
+        type: string
+        stability: development
+        brief: Name of the ThousandEyes test.
+        examples: ["Checkout monitor"]
+      - id: test.id
+        type: string
+        stability: development
+        brief: Identifies the ThousandEyes test.
+        examples: ["246810"]
+      - id: account.id
+        type: string
+        stability: development
+        brief: The ID of the account associated with the telemetry data.
+        examples: ["987654"]
+      - id: permalink
+        type: string
+        stability: development
+        brief: URL for the network test instance that generated the data.
+        examples: ["https://app.thousandeyes.com/tests/12345"]
+      - id: round.id
+        type: int
+        stability: development
+        brief: Identifies the network test instance that generated the data.
+        examples: [12345]
+      - id: agent.id
+        type: int
+        stability: development
+        brief: Identifies the ThousandEyes agent that ran the test.
+        examples: [12345]
+      - id: agent.location
+        type: string
+        stability: development
+        brief: Agent location.
+        examples: ["San Jose, CA, US"]
+      - id: agent.geoname.id
+        type: int
+        stability: development
+        brief: GeoNames ID of the ThousandEyes agent.
+        examples: [5392171]
+      - id: agent.geo.region.iso_code
+        type: string
+        stability: development
+        brief: ISO code for the region where the agent is located.
+        examples: ["US-CA"]
+      - id: agent.geo.country.iso_code
+        type: string
+        stability: development
+        brief: ISO code for the country where the agent is located.
+        examples: ["US"]
+      - id: agent.name
+        type: string
+        stability: development
+        brief: Agent name.
+        examples: ["us-west-1a"]
+      - id: datapoint.created
+        type: int
+        stability: development
+        brief: Time in milliseconds when the datapoint was created by the agent.
+        examples: [1700000000000]
+      - id: datapoint.id
+        type: string
+        stability: development
+        brief: Unique ID for each datapoint.
+        examples: ["dp-123456"]
+      - id: datapoint.received
+        type: int
+        stability: development
+        brief: Time in milliseconds when the datapoint was received by collectors.
+        examples: [1700000001234]
+      - id: integration.id
+        type: string
+        stability: development
+        brief: ID of the integration used to route the datapoint to the external service.
+        examples: ["123e4567-e89b-12d3-a456-426614174000"]
+
+  - id: registry.thousandeyes.v1.section_specific_attributes
+    type: attribute_group
+    brief: Network and App Synthetics v1 metric attributes.
+    attributes:
+      - id: url
+        type: string
+        stability: development
+        brief: URL for the test request.
+        examples: ["https://example.com/login"]
+      - id: server.ip
+        type: string
+        stability: development
+        brief: IP of the targeted server.
+        examples: ["198.51.100.20"]
+      - id: response.code
+        type: int
+        stability: development
+        brief: HTTP response status code.
+      - id: error.type
+        type: string
+        stability: development
+        brief: Error type for the test.
+        examples: ["timeout"]
+      - id: server.name
+        type: string
+        stability: development
+        brief: Target server host name.
+        examples: ["example.com"]
+      - id: direction
+        type: string
+        stability: development
+        brief: Direction of one-way or two-way agent-to-agent tests.
+        examples: ["SOURCE_TO_TARGET", "TARGET_TO_SOURCE", "BIDIRECTIONAL"]
+      - id: source.agent.id
+        type: int
+        stability: development
+        brief: Source agent identifier.
+        examples: [12345]
+      - id: source.agent.location
+        type: string
+        stability: development
+        brief: Source agent location.
+        examples: ["San Jose, CA, US"]
+      - id: source.agent.geoname.id
+        type: int
+        stability: development
+        brief: Source agent GeoNames identifier.
+        examples: [5392171]
+      - id: source.agent.geo.region.iso_code
+        type: string
+        stability: development
+        brief: Source agent region ISO code.
+        examples: ["US-CA"]
+      - id: source.agent.geo.country.iso_code
+        type: string
+        stability: development
+        brief: Source agent country ISO code.
+        examples: ["US"]
+      - id: source.agent.name
+        type: string
+        stability: development
+        brief: Source agent name.
+        examples: ["sjc-enterprise-agent"]
+      - id: target.agent.id
+        type: int
+        stability: development
+        brief: Target agent identifier.
+        examples: [98765]
+      - id: target.agent.location
+        type: string
+        stability: development
+        brief: Target agent location.
+        examples: ["New York, NY, US"]
+      - id: target.agent.geoname.id
+        type: int
+        stability: development
+        brief: Target agent GeoNames identifier.
+        examples: [5128581]
+      - id: target.agent.geo.region.iso_code
+        type: string
+        stability: development
+        brief: Target agent region ISO code.
+        examples: ["US-NY"]
+      - id: target.agent.geo.country.iso_code
+        type: string
+        stability: development
+        brief: Target agent country ISO code.
+        examples: ["US"]
+      - id: target.agent.name
+        type: string
+        stability: development
+        brief: Target agent name.
+        examples: ["nyc-cloud-agent"]
+      - id: monitor.id
+        type: string
+        stability: development
+        brief: BGP monitor ID.
+        examples: ["34567"]
+      - id: monitor.name
+        type: string
+        stability: development
+        brief: Name of the BGP monitor.
+        examples: ["Chicago, US (AS7018)"]
+      - id: monitor.location
+        type: string
+        stability: development
+        brief: Location of the BGP monitor.
+        examples: ["Chicago, US"]
+      - id: prefix
+        type: string
+        stability: development
+        brief: BGP prefix (IP address and subnet mask).
+        examples: ["203.0.113.0/24"]
+      - id: network.as.path
+        type: string
+        stability: development
+        brief: AS path represented as a space-separated list of ASNs.
+        examples: ["15169 3356 64512"]
+      - id: error.details
+        type: string
+        stability: development
+        brief: Additional error details from test execution.
+        examples: ["Name resolution failed"]
+      - id: server.id
+        type: string
+        stability: development
+        brief: Identifier of the server targeted by the test.
+        examples: ["srv-001"]
+      - id: query.count
+        type: int
+        stability: development
+        brief: Number of required DNS queries to get the requested result.
+        examples: [7]
+      - id: query.failed_count
+        type: int
+        stability: development
+        brief: Number of failed DNS queries while getting the requested result.
+        examples: [1]
+      - id: finalserver
+        type: string
+        stability: development
+        brief: DNS server that provided the final result.
+        examples: ["ns1.example.com"]
+      - id: error.num
+        type: int
+        stability: development
+        brief: Number of objects that encountered errors during download.
+        examples: [2]
+      - id: response.time.first
+        type: double
+        stability: development
+        brief: Time to first byte.
+        examples: [0.25]
+      - id: response.time.dom
+        type: double
+        stability: development
+        brief: Time to interaction.
+        examples: [1.24]
+      - id: object.size
+        type: int
+        stability: development
+        brief: Sum of wire size of all objects on page.
+        examples: [1423000]
+      - id: object.num
+        type: int
+        stability: development
+        brief: Number of objects found on the page.
+        examples: [124]
+      - id: step
+        type: int
+        stability: development
+        brief: API step identifier.
+        examples: [3]
+      - id: url.full
+        type: string
+        stability: development
+        brief: HTTP request absolute URL.
+        examples: ["https://api.example.com/v1/cart"]
+      - id: http.request.method
+        type: string
+        stability: development
+        brief: HTTP request method.
+        examples: ["GET"]
+
+  - id: entity.thousandeyes.stream
+    type: entity
+    name: thousandeyes.stream
+    brief: ThousandEyes integration stream context for v1 metrics.
+    stability: development
+    attributes:
+      - ref: thousandeyes.stream.id
+        requirement_level: required
+        role: identifying
+      - ref: thousandeyes.data.version
+        requirement_level: required
+        role: descriptive
+
+  - id: metric_attributes.thousandeyes.v1.common
+    type: attribute_group
+    brief: Common datapoint attributes for v1 metrics.
+    attributes:
+      - ref: test.domain
+      - ref: test.type
+      - ref: test.name
+      - ref: test.id
+      - ref: account.id
+      - ref: permalink
+      - ref: round.id
+      - ref: agent.id
+      - ref: agent.location
+      - ref: agent.geoname.id
+      - ref: agent.geo.region.iso_code
+      - ref: agent.geo.country.iso_code
+      - ref: agent.name
+      - ref: datapoint.created
+      - ref: datapoint.id
+      - ref: datapoint.received
+      - ref: integration.id
+
+  - id: metric_attributes.thousandeyes.v1.http_server
+    type: attribute_group
+    brief: Attributes for v1 HTTP server metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: url
+      - ref: server.ip
+      - ref: response.code
+      - ref: error.type
+
+  - id: metric_attributes.thousandeyes.v1.network
+    type: attribute_group
+    brief: Shared attributes for v1 network metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: server.name
+      - ref: server.ip
+      - ref: direction
+      - ref: source.agent.id
+      - ref: source.agent.location
+      - ref: source.agent.geoname.id
+      - ref: source.agent.geo.region.iso_code
+      - ref: source.agent.geo.country.iso_code
+      - ref: source.agent.name
+      - ref: target.agent.id
+      - ref: target.agent.location
+      - ref: target.agent.geoname.id
+      - ref: target.agent.geo.region.iso_code
+      - ref: target.agent.geo.country.iso_code
+      - ref: target.agent.name
+
+  - id: metric_attributes.thousandeyes.v1.bgp
+    type: attribute_group
+    brief: Attributes for v1 BGP metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: monitor.id
+      - ref: monitor.name
+      - ref: monitor.location
+      - ref: prefix
+      - ref: network.as.path
+
+  - id: metric_attributes.thousandeyes.v1.web_transaction
+    type: attribute_group
+    brief: Attributes for v1 web transaction metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: error.type
+      - ref: error.details
+
+  - id: metric_attributes.thousandeyes.v1.dns_server
+    type: attribute_group
+    brief: Attributes for v1 DNS server metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: error.details
+      - ref: server.id
+      - ref: server.name
+
+  - id: metric_attributes.thousandeyes.v1.dnssec
+    type: attribute_group
+    brief: Attributes for v1 DNSSEC metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: error.details
+
+  - id: metric_attributes.thousandeyes.v1.dns_trace
+    type: attribute_group
+    brief: Attributes for v1 DNS trace metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: error.details
+      - ref: query.count
+      - ref: query.failed_count
+      - ref: finalserver
+
+  - id: metric_attributes.thousandeyes.v1.page_load
+    type: attribute_group
+    brief: Attributes for v1 page load metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: error.details
+      - ref: error.num
+      - ref: response.time.first
+      - ref: response.time.dom
+      - ref: object.size
+      - ref: object.num
+
+  - id: metric_attributes.thousandeyes.v1.ftp
+    type: attribute_group
+    brief: Attributes for v1 FTP metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: server.ip
+      - ref: error.type
+
+  - id: metric_attributes.thousandeyes.v1.sip
+    type: attribute_group
+    brief: Attributes for v1 SIP metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: server.ip
+      - ref: error.type
+      - ref: error.details
+
+  - id: metric_attributes.thousandeyes.v1.rtp
+    type: attribute_group
+    brief: Attributes for v1 RTP metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: server.ip
+
+  - id: metric_attributes.thousandeyes.v1.api
+    type: attribute_group
+    brief: Attributes for v1 API test metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: error.type
+      - ref: error.details
+
+  - id: metric_attributes.thousandeyes.v1.api_step
+    type: attribute_group
+    brief: Attributes for v1 API test step metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: step
+      - ref: url.full
+      - ref: http.request.method

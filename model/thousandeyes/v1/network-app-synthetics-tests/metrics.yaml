@@ -1,0 +1,363 @@
+groups:
+  - id: metric.http.metrics.availability
+    type: metric
+    metric_name: http.metrics.availability
+    brief: Calculated depending on the errors reported during the test. In case there is any error, the availability is 0, otherwise 100%.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.http_server
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.http.metrics.throughput
+    type: metric
+    metric_name: http.metrics.throughput
+    brief: Throughput of test in bytes per second.
+    instrument: gauge
+    unit: "B/s"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.http_server
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.http.metrics.response.time
+    type: metric
+    metric_name: http.metrics.response.time
+    brief: Total time it took to execute the request.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.http_server
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.net.metrics.latency
+    type: metric
+    metric_name: net.metrics.latency
+    brief: The maximum round trip time for the packets sent to the target.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.network
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.net.metrics.loss
+    type: metric
+    metric_name: net.metrics.loss
+    brief: Packet loss.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.network
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.net.metrics.jitter
+    type: metric
+    metric_name: net.metrics.jitter
+    brief: Standard deviation for the round trip times.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.network
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.bgp.metrics.path.changes
+    type: metric
+    metric_name: bgp.metrics.path.changes
+    brief: Number of BGP route changes.
+    instrument: gauge
+    unit: "1"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.bgp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.bgp.metrics.reachability
+    type: metric
+    metric_name: bgp.metrics.reachability
+    brief: Indicates if the BGP route target is reachable.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.bgp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.bgp.metrics.updates
+    type: metric
+    metric_name: bgp.metrics.updates
+    brief: Number of BGP updates.
+    instrument: gauge
+    unit: "1"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.bgp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.webtransaction.metrics.transaction.time
+    type: metric
+    metric_name: webtransaction.metrics.transaction.time
+    brief: The time it took the transaction to complete successfully. This metric is not exposed if there are errors.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.web_transaction
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.webtransaction.metrics.completion
+    type: metric
+    metric_name: webtransaction.metrics.completion
+    brief: Percentage of completion of the transaction. 100% if the transaction completes successfully, 0% if there are errors.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.web_transaction
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.webtransaction.metrics.errors
+    type: metric
+    metric_name: webtransaction.metrics.errors
+    brief: Determines whether there were errors. 1 if there is an error processing the transaction, 0 otherwise.
+    instrument: gauge
+    unit: "1"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.web_transaction
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.dnsserver.metrics.availability
+    type: metric
+    metric_name: dnsserver.metrics.availability
+    brief: Calculated depending on the errors reported during the test. In case there is any error, the availability is 0, otherwise 100%.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.dns_server
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.dnsserver.metrics.resolution.time
+    type: metric
+    metric_name: dnsserver.metrics.resolution.time
+    brief: DNS resolve time.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.dns_server
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.dnssec.metrics.validity
+    type: metric
+    metric_name: dnssec.metrics.validity
+    brief: Calculated depending on the errors reported during the test. In case there is any error, the validity is 0, otherwise 100%.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.dnssec
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.dnstrace.metrics.availability
+    type: metric
+    metric_name: dnstrace.metrics.availability
+    brief: Calculated depending on the errors reported during the test. In case there is any error, the availability is 0, otherwise 100%.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.dns_trace
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.dnstrace.metrics.query.time
+    type: metric
+    metric_name: dnstrace.metrics.query.time
+    brief: Final query time.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.dns_trace
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.pageload.metrics.completion
+    type: metric
+    metric_name: pageload.metrics.completion
+    brief: Calculated depending on the errors reported during the test. In case there is any error, the completion is 0, otherwise 100%.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.page_load
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.pageload.metrics.time
+    type: metric
+    metric_name: pageload.metrics.time
+    brief: Time to completely load the page.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.page_load
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.ftp.metrics.availability
+    type: metric
+    metric_name: ftp.metrics.availability
+    brief: Calculated depending on the errors reported during the test. In case there is any error, the availability is 0, otherwise 100%.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.ftp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.ftp.metrics.response.time
+    type: metric
+    metric_name: ftp.metrics.response.time
+    brief: Total time it took to get the first byte while executing the request.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.ftp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.ftp.metrics.throughput
+    type: metric
+    metric_name: ftp.metrics.throughput
+    brief: Throughput of test in bytes per second.
+    instrument: gauge
+    unit: "B/s"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.ftp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.sip.metrics.availability
+    type: metric
+    metric_name: sip.metrics.availability
+    brief: Calculated depending on the errors reported during the test. In case there is any error, the availability is 0, otherwise 100%.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.sip
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.sip.metrics.response.time
+    type: metric
+    metric_name: sip.metrics.response.time
+    brief: Total time it took to get the first byte while executing the request.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.sip
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.sip.metrics.total.time
+    type: metric
+    metric_name: sip.metrics.total.time
+    brief: Total time it took until the last response was received.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.sip
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.rtp.metrics.mos
+    type: metric
+    metric_name: rtp.metrics.mos
+    brief: Mean opinion score (MOS), a measurement of perceived voice quality.
+    instrument: gauge
+    unit: "1{score}"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.rtp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.rtp.metrics.loss
+    type: metric
+    metric_name: rtp.metrics.loss
+    brief: Percentage of frames lost computed from lost frames count and total frames.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.rtp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.rtp.metrics.discards
+    type: metric
+    metric_name: rtp.metrics.discards
+    brief: Percentage of frames discarded computed from discarded frames count and total frames.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.rtp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.rtp.metrics.latency
+    type: metric
+    metric_name: rtp.metrics.latency
+    brief: Total time it took for the test round execution.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.rtp
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.api.metrics.time
+    type: metric
+    metric_name: api.metrics.time
+    brief: The time the entire API test took to run including all steps.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.api
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.api.metrics.completion
+    type: metric
+    metric_name: api.metrics.completion
+    brief: Percentage of completion of all the steps of the API test.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.api
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.api.step.metrics.time
+    type: metric
+    metric_name: api.step.metrics.time
+    brief: The time it took the API test to complete the step.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.api_step
+    entity_associations:
+      - thousandeyes.stream
+
+  - id: metric.api.step.metrics.completion
+    type: metric
+    metric_name: api.step.metrics.completion
+    brief: Percentage of completion of the API test step. 100% if the step is completed successfully, 0% if there are errors.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.v1.api_step
+    entity_associations:
+      - thousandeyes.stream

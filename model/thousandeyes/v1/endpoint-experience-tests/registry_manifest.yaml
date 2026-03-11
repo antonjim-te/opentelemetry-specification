@@ -1,0 +1,4 @@
+name: thousandeyes-v1-endpoint-experience-tests
+description: ThousandEyes Data Model v1 Endpoint Experience Tests semantic conventions.
+semconv_version: 0.1.0
+schema_base_url: https://opentelemetry.io/schemas/

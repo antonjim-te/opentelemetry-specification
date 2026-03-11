@@ -1,17 +1,23 @@
 # ThousandEyes Metrics, Logs, and Traces in OpenTelemetry Weaver
 
-This repository contains ThousandEyes OpenTelemetry Data Model v2 represented as independent Weaver registries.
+This repository contains ThousandEyes OpenTelemetry Data Model v2 and v1 represented as independent Weaver registries.
 
-- `model/thousandeyes/network-app-synthetics-tests/attributes.yaml`
-- `model/thousandeyes/network-app-synthetics-tests/metrics.yaml`
-- `model/thousandeyes/endpoint-experience-tests/attributes.yaml`
-- `model/thousandeyes/endpoint-experience-tests/metrics.yaml`
-- `model/thousandeyes/endpoint-experience-local-network/attributes.yaml`
-- `model/thousandeyes/endpoint-experience-local-network/metrics.yaml`
-- `model/thousandeyes/logs/attributes.yaml`
-- `model/thousandeyes/logs/events.yaml`
-- `model/thousandeyes/traces/attributes.yaml`
-- `model/thousandeyes/traces/spans.yaml`
+The model layout is versioned under `model/thousandeyes/v2` and `model/thousandeyes/v1`:
+
+- `model/thousandeyes/v2/network-app-synthetics-tests/attributes.yaml`
+- `model/thousandeyes/v2/network-app-synthetics-tests/metrics.yaml`
+- `model/thousandeyes/v2/endpoint-experience-tests/attributes.yaml`
+- `model/thousandeyes/v2/endpoint-experience-tests/metrics.yaml`
+- `model/thousandeyes/v2/endpoint-experience-local-network/attributes.yaml`
+- `model/thousandeyes/v2/endpoint-experience-local-network/metrics.yaml`
+- `model/thousandeyes/v2/logs/attributes.yaml`
+- `model/thousandeyes/v2/logs/events.yaml`
+- `model/thousandeyes/v2/traces/attributes.yaml`
+- `model/thousandeyes/v2/traces/spans.yaml`
+- `model/thousandeyes/v1/network-app-synthetics-tests/attributes.yaml`
+- `model/thousandeyes/v1/network-app-synthetics-tests/metrics.yaml`
+- `model/thousandeyes/v1/endpoint-experience-tests/attributes.yaml`
+- `model/thousandeyes/v1/endpoint-experience-tests/metrics.yaml`
 
 The registries are organized by these sections to mirror ThousandEyes documentation:
 
@@ -20,6 +26,7 @@ The registries are organized by these sections to mirror ThousandEyes documentat
 - `Endpoint Experience Local Network`
 - `Logs (Activity Log)`
 - `Traces (Page load, Transaction, API)`
+- `Data Model v1 Metrics (Network & App Synthetics, Endpoint Experience)`
 
 ## Automation (validate + docs generation)
 
@@ -32,7 +39,7 @@ This repo includes a `Makefile` with the same generation pattern used in `open-t
 ### Usage
 
 ```bash
-# Validate all registries (metrics + logs + traces)
+# Validate all registries (v2 + v1, metrics + logs + traces)
 make validate
 
 # Validate, generate docs, and render semconv snippets
@@ -48,26 +55,33 @@ make docs-update-inline
 
 ### Generated docs structure
 
-For each metrics section, `make docs` generates:
+For each Data Model v2 metrics section, `make docs` generates:
 
-- `docs/<section>/attributes/*` via upstream semantic-conventions templates
-- `docs/<section>/metrics/README.md` via local metrics template target
-- `docs/<section>/<section>-metrics.md` with upstream-style rendered metric sections via `update-markdown`
-- `docs/<section>/README.md` with links to Attributes, Entities, Metrics, and Metric Specs
+- `docs/v2/<section>/attributes/*` via upstream semantic-conventions templates
+- `docs/v2/<section>/metrics/README.md` via local metrics template target
+- `docs/v2/<section>/<section>-metrics.md` with upstream-style rendered metric sections via `update-markdown`
+- `docs/v2/<section>/README.md` with links to Attributes, Entities, Metrics, and Metric Specs
+
+For each Data Model v1 metrics section, `make docs` generates:
+
+- `docs/v1/<section>/attributes/*` via upstream semantic-conventions templates
+- `docs/v1/<section>/metrics/README.md` via local metrics template target
+- `docs/v1/<section>/<section>-metrics.md` with upstream-style rendered metric sections via `update-markdown`
+- `docs/v1/<section>/README.md` with links to Attributes, Entities, Metrics, and Metric Specs
 
 For logs, `make docs` generates:
 
-- `docs/logs/attributes/*` via upstream semantic-conventions templates
-- `docs/logs/events/*` via upstream semantic-conventions templates
-- `docs/logs/logs-events.md` with upstream-style rendered event sections via `update-markdown`
-- `docs/logs/README.md` with links to Attributes, Entities, and Event Specs
+- `docs/v2/logs/attributes/*` via upstream semantic-conventions templates
+- `docs/v2/logs/events/*` via upstream semantic-conventions templates
+- `docs/v2/logs/logs-events.md` with upstream-style rendered event sections via `update-markdown`
+- `docs/v2/logs/README.md` with links to Attributes, Entities, and Event Specs
 
 For traces, `make docs` generates:
 
-- `docs/traces/attributes/*` via upstream semantic-conventions templates
-- `docs/traces/entities/*` via upstream semantic-conventions templates
-- `docs/traces/traces-spans.md` with upstream-style rendered span sections via `update-markdown`
-- `docs/traces/README.md` with links to Attributes, Entities, and Span Specs
+- `docs/v2/traces/attributes/*` via upstream semantic-conventions templates
+- `docs/v2/traces/entities/*` via upstream semantic-conventions templates
+- `docs/v2/traces/traces-spans.md` with upstream-style rendered span sections via `update-markdown`
+- `docs/v2/traces/README.md` with links to Attributes, Entities, and Span Specs
 
 ## Notes
 

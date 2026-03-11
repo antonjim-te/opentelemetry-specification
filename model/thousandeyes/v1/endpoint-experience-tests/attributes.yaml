@@ -1,0 +1,187 @@
+groups:
+  - id: registry.thousandeyes.v1.resource_attributes
+    type: attribute_group
+    brief: Common resource attributes for ThousandEyes Data Model v1 metrics.
+    attributes:
+      - id: thousandeyes.stream.id
+        type: string
+        stability: development
+        brief: ID of the integration used to route the datapoint to the external service.
+        examples: ["123e4567-e89b-12d3-a456-426614174000"]
+      - id: thousandeyes.data.version
+        type: string
+        stability: development
+        brief: Specifies the version of the data model.
+        examples: ["v1"]
+
+  - id: registry.thousandeyes.v1.common_metric_attributes
+    type: attribute_group
+    brief: Common metric attributes for ThousandEyes Data Model v1 metrics.
+    attributes:
+      - id: test.domain
+        type: string
+        stability: development
+        brief: Origin of the test data.
+        examples: ["endpoint"]
+      - id: test.type
+        type: string
+        stability: development
+        brief: ThousandEyes test type.
+        examples: ["http-server", "agent-to-server"]
+      - id: test.name
+        type: string
+        stability: development
+        brief: Name of the ThousandEyes test.
+        examples: ["Endpoint HTTP monitor"]
+      - id: test.id
+        type: string
+        stability: development
+        brief: Identifies the ThousandEyes test.
+        examples: ["246810"]
+      - id: account.id
+        type: string
+        stability: development
+        brief: The ID of the account associated with the telemetry data.
+        examples: ["987654"]
+      - id: permalink
+        type: string
+        stability: development
+        brief: URL for the network test instance that generated the data.
+        examples: ["https://app.thousandeyes.com/tests/12345"]
+      - id: round.id
+        type: int
+        stability: development
+        brief: Identifies the network test instance that generated the data.
+        examples: [12345]
+      - id: agent.id
+        type: int
+        stability: development
+        brief: Identifies the ThousandEyes agent that ran the test.
+        examples: [12345]
+      - id: agent.location
+        type: string
+        stability: development
+        brief: Agent location.
+        examples: ["San Jose, CA, US"]
+      - id: agent.geoname.id
+        type: int
+        stability: development
+        brief: GeoNames ID of the ThousandEyes agent.
+        examples: [5392171]
+      - id: agent.geo.region.iso_code
+        type: string
+        stability: development
+        brief: ISO code for the region where the agent is located.
+        examples: ["US-CA"]
+      - id: agent.geo.country.iso_code
+        type: string
+        stability: development
+        brief: ISO code for the country where the agent is located.
+        examples: ["US"]
+      - id: agent.name
+        type: string
+        stability: development
+        brief: Agent name.
+        examples: ["us-west-1a"]
+      - id: datapoint.created
+        type: int
+        stability: development
+        brief: Time in milliseconds when the datapoint was created by the agent.
+        examples: [1700000000000]
+      - id: datapoint.id
+        type: string
+        stability: development
+        brief: Unique ID for each datapoint.
+        examples: ["dp-123456"]
+      - id: datapoint.received
+        type: int
+        stability: development
+        brief: Time in milliseconds when the datapoint was received by collectors.
+        examples: [1700000001234]
+      - id: integration.id
+        type: string
+        stability: development
+        brief: ID of the integration used to route the datapoint to the external service.
+        examples: ["123e4567-e89b-12d3-a456-426614174000"]
+
+  - id: registry.thousandeyes.v1.section_specific_attributes
+    type: attribute_group
+    brief: Endpoint Experience Tests v1 metric attributes.
+    attributes:
+      - id: url
+        type: string
+        stability: development
+        brief: The final URL after redirects.
+        examples: ["https://example.com/login"]
+      - id: server.ip
+        type: string
+        stability: development
+        brief: IP of the targeted server.
+        examples: ["198.51.100.20"]
+      - id: response.code
+        type: int
+        stability: development
+        brief: HTTP response status code.
+      - id: error.type
+        type: string
+        stability: development
+        brief: Error type for the test.
+        examples: ["timeout"]
+      - id: server.name
+        type: string
+        stability: development
+        brief: Target server host name.
+        examples: ["example.com"]
+
+  - id: entity.thousandeyes.stream
+    type: entity
+    name: thousandeyes.stream
+    brief: ThousandEyes integration stream context for v1 metrics.
+    stability: development
+    attributes:
+      - ref: thousandeyes.stream.id
+        requirement_level: required
+        role: identifying
+      - ref: thousandeyes.data.version
+        requirement_level: required
+        role: descriptive
+
+  - id: metric_attributes.thousandeyes.v1.common
+    type: attribute_group
+    brief: Common datapoint attributes for v1 metrics.
+    attributes:
+      - ref: test.domain
+      - ref: test.type
+      - ref: test.name
+      - ref: test.id
+      - ref: account.id
+      - ref: permalink
+      - ref: round.id
+      - ref: agent.id
+      - ref: agent.location
+      - ref: agent.geoname.id
+      - ref: agent.geo.region.iso_code
+      - ref: agent.geo.country.iso_code
+      - ref: agent.name
+      - ref: datapoint.created
+      - ref: datapoint.id
+      - ref: datapoint.received
+      - ref: integration.id
+
+  - id: metric_attributes.thousandeyes.v1.http_server
+    type: attribute_group
+    brief: Attributes for v1 HTTP server metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: url
+      - ref: server.ip
+      - ref: response.code
+      - ref: error.type
+
+  - id: metric_attributes.thousandeyes.v1.network
+    type: attribute_group
+    brief: Attributes for v1 agent-to-server network metrics.
+    extends: metric_attributes.thousandeyes.v1.common
+    attributes:
+      - ref: server.name
+      - ref: server.ip
