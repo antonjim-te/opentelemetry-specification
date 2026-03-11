@@ -39,8 +39,8 @@ Section-specific attributes used by Endpoint Experience tests.
 | --- | --- | --- | --- | --- |
 | <a id="error-type" href="#error-type">`error.type`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Error class of the operation. | `timeout` |
 | <a id="http-request-method" href="#http-request-method">`http.request.method`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | HTTP request method. | `GET` |
-| <a id="http-response-status-code" href="#http-response-status-code">`http.response.status_code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | HTTP response status code. | |
+| <a id="http-response-status-code" href="#http-response-status-code">`http.response.status_code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | HTTP response status code. | `200` |
 | <a id="network-transport" href="#network-transport">`network.transport`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Network transport protocol. | `tcp` |
 | <a id="server-address" href="#server-address">`server.address`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Server domain name or address. | `example.com` |
-| <a id="server-port" href="#server-port">`server.port`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | Server port number. | |
+| <a id="server-port" href="#server-port">`server.port`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | Server port number. | `443` |
 | <a id="url-scheme" href="#url-scheme">`url.scheme`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | URL scheme. | `https` |

@@ -4,29 +4,31 @@ This repository contains ThousandEyes OpenTelemetry Data Model v2 and v1 represe
 
 The model layout is versioned under `model/thousandeyes/v2` and `model/thousandeyes/v1`:
 
-- `model/thousandeyes/v2/network-app-synthetics-tests/attributes.yaml`
-- `model/thousandeyes/v2/network-app-synthetics-tests/metrics.yaml`
-- `model/thousandeyes/v2/endpoint-experience-tests/attributes.yaml`
-- `model/thousandeyes/v2/endpoint-experience-tests/metrics.yaml`
-- `model/thousandeyes/v2/endpoint-experience-local-network/attributes.yaml`
-- `model/thousandeyes/v2/endpoint-experience-local-network/metrics.yaml`
+- `model/thousandeyes/v2/metrics/network-app-synthetics-tests/attributes.yaml`
+- `model/thousandeyes/v2/metrics/network-app-synthetics-tests/metrics.yaml`
+- `model/thousandeyes/v2/metrics/endpoint-experience-tests/attributes.yaml`
+- `model/thousandeyes/v2/metrics/endpoint-experience-tests/metrics.yaml`
+- `model/thousandeyes/v2/metrics/endpoint-experience-local-network/attributes.yaml`
+- `model/thousandeyes/v2/metrics/endpoint-experience-local-network/metrics.yaml`
 - `model/thousandeyes/v2/logs/attributes.yaml`
 - `model/thousandeyes/v2/logs/events.yaml`
 - `model/thousandeyes/v2/traces/attributes.yaml`
 - `model/thousandeyes/v2/traces/spans.yaml`
-- `model/thousandeyes/v1/network-app-synthetics-tests/attributes.yaml`
-- `model/thousandeyes/v1/network-app-synthetics-tests/metrics.yaml`
-- `model/thousandeyes/v1/endpoint-experience-tests/attributes.yaml`
-- `model/thousandeyes/v1/endpoint-experience-tests/metrics.yaml`
+- `model/thousandeyes/v1/metrics/network-app-synthetics-tests/attributes.yaml`
+- `model/thousandeyes/v1/metrics/network-app-synthetics-tests/metrics.yaml`
+- `model/thousandeyes/v1/metrics/endpoint-experience-tests/attributes.yaml`
+- `model/thousandeyes/v1/metrics/endpoint-experience-tests/metrics.yaml`
 
 The registries are organized by these sections to mirror ThousandEyes documentation:
 
-- `Network & App Synthetics Tests`
-- `Endpoint Experience - Tests`
-- `Endpoint Experience Local Network`
-- `Logs (Activity Log)`
-- `Traces (Page load, Transaction, API)`
-- `Data Model v1 Metrics (Network & App Synthetics, Endpoint Experience)`
+- `Metrics`
+  - `Network & App Synthetics Tests`
+  - `Endpoint Experience - Tests`
+  - `Endpoint Experience Local Network`
+- `Logs`
+  - `Activity Log`
+- `Traces`
+  - `Network & App Synthetics Tests`
 
 ## Automation (validate + docs generation)
 

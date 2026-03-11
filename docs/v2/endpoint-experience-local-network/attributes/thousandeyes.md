@@ -44,6 +44,6 @@ Section-specific attributes used by Endpoint Experience local network.
 | <a id="client-address" href="#client-address">`client.address`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Client IP address. | `192.0.2.14` |
 | <a id="dns-question-name" href="#dns-question-name">`dns.question.name`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Queried DNS name. | `www.example.com` |
 | <a id="server-address" href="#server-address">`server.address`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Server domain name or address. | `example.com` |
-| <a id="server-port" href="#server-port">`server.port`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | Server port number. | |
+| <a id="server-port" href="#server-port">`server.port`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | Server port number. | `443` |
 | <a id="target-type" href="#target-type">`target.type`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Endpoint local network target category. | `DNS` |
 | <a id="vpn-vendor" href="#vpn-vendor">`vpn.vendor`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | VPN vendor for endpoint local VPN tests. | `Cisco AnyConnect` |

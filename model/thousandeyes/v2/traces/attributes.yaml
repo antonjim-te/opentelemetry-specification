@@ -97,6 +97,7 @@ groups:
         type: int
         stability: development
         brief: HTTP response code.
+        examples: [200]
       - id: server.address
         type: string
         stability: development
@@ -106,6 +107,7 @@ groups:
         type: int
         stability: development
         brief: Server port.
+        examples: [443]
       - id: url.full
         type: string
         stability: development

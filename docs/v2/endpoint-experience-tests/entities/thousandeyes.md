@@ -31,7 +31,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | Identity | [`server.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Required` | string | Server domain name or address. | `example.com` |
 | Description | [`http.request.method`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | HTTP request method. | `GET` |
-| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | |
+| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | `443` |
 | Description | [`url.scheme`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | URL scheme. | `https` |
 
 ## Thousandeyes Endpoint Tests Network Target
@@ -48,7 +48,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | Identity | [`server.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Required` | string | Server domain name or address. | `example.com` |
 | Description | [`network.transport`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Network transport protocol. | `tcp` |
-| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | |
+| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | `443` |
 
 ## Thousandeyes Source Agent
 

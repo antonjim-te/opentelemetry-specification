@@ -87,6 +87,7 @@ groups:
         type: int
         stability: development
         brief: Server port number.
+        examples: [443]
       - id: url.scheme
         type: string
         stability: development
@@ -181,6 +182,7 @@ groups:
         type: int
         stability: development
         brief: API test step identifier.
+        examples: [3]
       - id: error.type
         type: string
         stability: development
@@ -190,14 +192,17 @@ groups:
         type: int
         stability: development
         brief: HTTP response status code.
+        examples: [200]
       - id: ftp.response.status_code
         type: int
         stability: development
         brief: FTP response status code.
+        examples: [226]
       - id: sip.response.status_code
         type: int
         stability: development
         brief: SIP response status code.
+        examples: [200]
 
   - id: entity.thousandeyes.stream
     type: entity

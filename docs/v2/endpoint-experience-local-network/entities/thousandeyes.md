@@ -46,7 +46,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | Identity | [`server.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Required` | string | Server domain name or address. | `example.com` |
 | Description | [`client.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Client IP address. | `192.0.2.14` |
-| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | |
+| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | `443` |
 | Description | [`vpn.vendor`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | VPN vendor for endpoint local VPN tests. | `Cisco AnyConnect` |
 
 ## Thousandeyes Source Agent

@@ -42,9 +42,9 @@ This span models the trace layer emitted by ThousandEyes page load tests.
 | Key | Stability | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Value Type | Description | Example Values |
 | --- | --- | --- | --- | --- | --- |
 | [`http.request.method`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | HTTP request method. | `GET` |
-| [`http.response.code`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | HTTP response code. | |
+| [`http.response.code`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | HTTP response code. | `200` |
 | [`server.address`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | Server address. | `example.com` |
-| [`server.port`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | Server port. | |
+| [`server.port`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | Server port. | `443` |
 | [`url.full`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | Full URL of the request. | `https://example.com/login` |
 
 <!-- prettier-ignore-end -->
@@ -91,9 +91,9 @@ This span models the trace layer emitted by ThousandEyes transaction tests.
 | Key | Stability | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Value Type | Description | Example Values |
 | --- | --- | --- | --- | --- | --- |
 | [`http.request.method`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | HTTP request method. | `GET` |
-| [`http.response.code`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | HTTP response code. | |
+| [`http.response.code`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | HTTP response code. | `200` |
 | [`server.address`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | Server address. | `example.com` |
-| [`server.port`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | Server port. | |
+| [`server.port`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | Server port. | `443` |
 | [`url.full`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | Full URL of the request. | `https://example.com/login` |
 
 <!-- prettier-ignore-end -->
@@ -140,9 +140,9 @@ This span models the trace layer emitted by ThousandEyes API tests.
 | Key | Stability | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Value Type | Description | Example Values |
 | --- | --- | --- | --- | --- | --- |
 | [`http.request.method`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | HTTP request method. | `GET` |
-| [`http.response.code`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | HTTP response code. | |
+| [`http.response.code`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | HTTP response code. | `200` |
 | [`server.address`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | Server address. | `example.com` |
-| [`server.port`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | Server port. | |
+| [`server.port`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | Server port. | `443` |
 | [`step`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | int | Step ID for API tests. | `3` |
 | [`url.full`](attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | Full URL of the request. | `https://example.com/login` |
 

@@ -40,17 +40,17 @@ ThousandEyes attributes that are specific to particular sections and tests.
 | <a id="dns-question-name" href="#dns-question-name">`dns.question.name`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Queried DNS name. | `www.example.com` |
 | <a id="error-type" href="#error-type">`error.type`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Error class of the operation. | `timeout` |
 | <a id="ftp-request-command" href="#ftp-request-command">`ftp.request.command`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | FTP command. | `GET` |
-| <a id="ftp-response-status-code" href="#ftp-response-status-code">`ftp.response.status_code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | FTP response status code. | |
+| <a id="ftp-response-status-code" href="#ftp-response-status-code">`ftp.response.status_code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | FTP response status code. | `226` |
 | <a id="http-request-method" href="#http-request-method">`http.request.method`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | HTTP request method. | `GET` |
-| <a id="http-response-status-code" href="#http-response-status-code">`http.response.status_code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | HTTP response status code. | |
+| <a id="http-response-status-code" href="#http-response-status-code">`http.response.status_code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | HTTP response status code. | `200` |
 | <a id="http-route" href="#http-route">`http.route`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Matched HTTP route. | `/api/v1/users` |
 | <a id="network-as-path" href="#network-as-path">`network.as.path`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Space-separated AS path. | `15169 3356 64512` |
 | <a id="network-io-direction" href="#network-io-direction">`network.io.direction`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Direction for the network operation. | `round-trip` |
 | <a id="network-prefix" href="#network-prefix">`network.prefix`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | BGP network prefix. | `203.0.113.0/24` |
 | <a id="network-transport" href="#network-transport">`network.transport`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Network transport protocol. | `tcp` |
 | <a id="server-address" href="#server-address">`server.address`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Server domain name or address. | `example.com` |
-| <a id="server-port" href="#server-port">`server.port`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | Server port number. | |
-| <a id="sip-response-status-code" href="#sip-response-status-code">`sip.response.status_code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | SIP response status code. | |
+| <a id="server-port" href="#server-port">`server.port`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | Server port number. | `443` |
+| <a id="sip-response-status-code" href="#sip-response-status-code">`sip.response.status_code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | SIP response status code. | `200` |
 | <a id="thousandeyes-monitor-id" href="#thousandeyes-monitor-id">`thousandeyes.monitor.id`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Identifier of the BGP monitor. | `34567` |
 | <a id="thousandeyes-monitor-location" href="#thousandeyes-monitor-location">`thousandeyes.monitor.location`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | BGP monitor location. | `Chicago, US` |
 | <a id="thousandeyes-monitor-name" href="#thousandeyes-monitor-name">`thousandeyes.monitor.name`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | BGP monitor name. | `Chicago, US (AS7018)` |
@@ -60,5 +60,5 @@ ThousandEyes attributes that are specific to particular sections and tests.
 | <a id="thousandeyes-target-agent-id" href="#thousandeyes-target-agent-id">`thousandeyes.target.agent.id`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Identifier of the target agent. | `98765` |
 | <a id="thousandeyes-target-agent-location" href="#thousandeyes-target-agent-location">`thousandeyes.target.agent.location`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Target agent location. | `New York, NY, US` |
 | <a id="thousandeyes-target-agent-name" href="#thousandeyes-target-agent-name">`thousandeyes.target.agent.name`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Target agent name. | `nyc-edge-1` |
-| <a id="thousandeyes-test-step" href="#thousandeyes-test-step">`thousandeyes.test.step`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | API test step identifier. | |
+| <a id="thousandeyes-test-step" href="#thousandeyes-test-step">`thousandeyes.test.step`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | API test step identifier. | `3` |
 | <a id="url-scheme" href="#url-scheme">`url.scheme`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | URL scheme. | `https` |

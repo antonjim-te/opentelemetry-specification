@@ -29,10 +29,10 @@
 
 | Role | Key | Stability | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Value Type | Description | Example Values |
 | --- | --- | --- | --- | --- | --- | --- |
-| Identity | [`thousandeyes.test.step`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Required` | int | API test step identifier. | |
+| Identity | [`thousandeyes.test.step`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Required` | int | API test step identifier. | `3` |
 | Description | [`http.request.method`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | HTTP request method. | `GET` |
 | Description | [`server.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Server domain name or address. | `example.com` |
-| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | |
+| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | `443` |
 | Description | [`url.scheme`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | URL scheme. | `https` |
 
 ## Thousandeyes Network App Bgp Monitor
@@ -94,7 +94,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | Identity | [`server.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Required` | string | Server domain name or address. | `example.com` |
 | Description | [`ftp.request.command`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | FTP command. | `GET` |
-| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | |
+| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | `443` |
 | Description | [`url.scheme`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | URL scheme. | `https` |
 
 ## Thousandeyes Network App HTTP Target
@@ -112,7 +112,7 @@
 | Identity | [`server.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Required` | string | Server domain name or address. | `example.com` |
 | Description | [`http.request.method`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | HTTP request method. | `GET` |
 | Description | [`http.route`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Matched HTTP route. | `/api/v1/users` |
-| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | |
+| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | `443` |
 | Description | [`url.scheme`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | URL scheme. | `https` |
 
 ## Thousandeyes Network App Network Context
@@ -130,7 +130,7 @@
 | Description | [`network.io.direction`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Direction for the network operation. | `round-trip` |
 | Description | [`network.transport`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Network transport protocol. | `tcp` |
 | Description | [`server.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Server domain name or address. | `example.com` |
-| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | |
+| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | `443` |
 | Description | [`thousandeyes.target.agent.geo.country.iso_code`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | ISO country code for the target agent. | `US` |
 | Description | [`thousandeyes.target.agent.geo.region.iso_code`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | ISO region code for the target agent. | `US-NY` |
 | Description | [`thousandeyes.target.agent.geoname.id`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | GeoNames identifier for the target agent location. | `5128581` |
@@ -170,7 +170,7 @@
 | Role | Key | Stability | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Value Type | Description | Example Values |
 | --- | --- | --- | --- | --- | --- | --- |
 | Identity | [`server.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Required` | string | Server domain name or address. | `example.com` |
-| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | |
+| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | `443` |
 
 ## Thousandeyes Network App Sip Target
 
@@ -185,7 +185,7 @@
 | Role | Key | Stability | [Requirement Level](https://opentelemetry.io/docs/specs/semconv/general/attribute-requirement-level/) | Value Type | Description | Example Values |
 | --- | --- | --- | --- | --- | --- | --- |
 | Identity | [`server.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Required` | string | Server domain name or address. | `example.com` |
-| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | |
+| Description | [`server.port`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | int | Server port number. | `443` |
 
 ## Thousandeyes Source Agent
 

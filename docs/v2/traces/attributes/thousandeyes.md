@@ -40,8 +40,8 @@ Span attributes for ThousandEyes traces.
 | Key | Stability | Value Type | Description | Example Values |
 | --- | --- | --- | --- | --- |
 | <a id="http-request-method" href="#http-request-method">`http.request.method`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | HTTP request method. | `GET` |
-| <a id="http-response-code" href="#http-response-code">`http.response.code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | HTTP response code. | |
+| <a id="http-response-code" href="#http-response-code">`http.response.code`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | HTTP response code. | `200` |
 | <a id="server-address" href="#server-address">`server.address`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Server address. | `example.com` |
-| <a id="server-port" href="#server-port">`server.port`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | Server port. | |
+| <a id="server-port" href="#server-port">`server.port`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | Server port. | `443` |
 | <a id="step" href="#step">`step`</a> | ![Development](https://img.shields.io/badge/-development-blue) | int | Step ID for API tests. | `3` |
 | <a id="url-full" href="#url-full">`url.full`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Full URL of the request. | `https://example.com/login` |
