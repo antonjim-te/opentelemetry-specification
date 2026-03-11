@@ -1,0 +1,470 @@
+groups:
+  - id: metric.http.server.request.availability
+    type: metric
+    metric_name: http.server.request.availability
+    brief: Percentage availability for HTTP server tests.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.http_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.http_target
+
+  - id: metric.http.server.throughput
+    type: metric
+    metric_name: http.server.throughput
+    brief: Throughput in bytes per second for HTTP server tests.
+    instrument: gauge
+    unit: "B/s"
+    stability: development
+    extends: metric_attributes.thousandeyes.http_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.http_target
+
+  - id: metric.http.client.request.duration
+    type: metric
+    metric_name: http.client.request.duration
+    brief: Time to first byte for HTTP server tests.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.http_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.http_target
+
+  - id: metric.network.latency
+    type: metric
+    metric_name: network.latency
+    brief: Network round-trip latency.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.network_shared
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.network_context
+
+  - id: metric.network.loss
+    type: metric
+    metric_name: network.loss
+    brief: Network packet loss percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.network_shared
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.network_context
+
+  - id: metric.network.jitter
+    type: metric
+    metric_name: network.jitter
+    brief: Network jitter measured as standard deviation of round-trip times.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.network_shared
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.network_context
+
+  - id: metric.bgp.path_changes.count
+    type: metric
+    metric_name: bgp.path_changes.count
+    brief: Number of BGP route path changes.
+    instrument: gauge
+    unit: "1{PC}"
+    stability: development
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.network_app.bgp.route
+      - thousandeyes.network_app.bgp.monitor
+
+  - id: metric.bgp.reachability
+    type: metric
+    metric_name: bgp.reachability
+    brief: BGP target reachability percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.network_app.bgp.route
+      - thousandeyes.network_app.bgp.monitor
+
+  - id: metric.bgp.updates.count
+    type: metric
+    metric_name: bgp.updates.count
+    brief: Number of BGP updates.
+    instrument: gauge
+    unit: "1{update}"
+    stability: development
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.network_app.bgp.route
+      - thousandeyes.network_app.bgp.monitor
+
+  - id: metric.web.transaction.duration
+    type: metric
+    metric_name: web.transaction.duration
+    brief: Transaction completion duration.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.transaction
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+
+  - id: metric.web.transaction.errors.count
+    type: metric
+    metric_name: web.transaction.errors.count
+    brief: Transaction error indicator count.
+    instrument: gauge
+    unit: "1{error}"
+    stability: development
+    extends: metric_attributes.thousandeyes.transaction
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+
+  - id: metric.web.transaction.completion
+    type: metric
+    metric_name: web.transaction.completion
+    brief: Transaction completion percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.transaction
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+
+  - id: metric.dns.lookup.availability
+    type: metric
+    metric_name: dns.lookup.availability
+    brief: DNS lookup availability percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.dns
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.dns_query
+
+  - id: metric.dns.lookup.duration
+    type: metric
+    metric_name: dns.lookup.duration
+    brief: DNS lookup duration.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.dns
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.dns_query
+
+  - id: metric.dns.lookup.validity
+    type: metric
+    metric_name: dns.lookup.validity
+    brief: DNSSEC validity percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.dns
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.dns_query
+
+  - id: metric.web.page_load.duration
+    type: metric
+    metric_name: web.page_load.duration
+    brief: Page load duration.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.page_load
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.server_target
+
+  - id: metric.web.page_load.completion
+    type: metric
+    metric_name: web.page_load.completion
+    brief: Page load completion percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.page_load
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.server_target
+
+  - id: metric.ftp.server.request.availability
+    type: metric
+    metric_name: ftp.server.request.availability
+    brief: FTP request availability percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.ftp_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.ftp_target
+
+  - id: metric.ftp.client.request.duration
+    type: metric
+    metric_name: ftp.client.request.duration
+    brief: FTP client request duration.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.ftp_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.ftp_target
+
+  - id: metric.ftp.server.throughput
+    type: metric
+    metric_name: ftp.server.throughput
+    brief: FTP throughput in bytes per second.
+    instrument: gauge
+    unit: "B/s"
+    stability: development
+    extends: metric_attributes.thousandeyes.ftp_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.ftp_target
+
+  - id: metric.sip.server.request.availability
+    type: metric
+    metric_name: sip.server.request.availability
+    brief: SIP request availability percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.sip_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.sip_target
+
+  - id: metric.sip.client.request.duration
+    type: metric
+    metric_name: sip.client.request.duration
+    brief: SIP client request duration.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.sip_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.sip_target
+
+  - id: metric.sip.client.request.total_time
+    type: metric
+    metric_name: sip.client.request.total_time
+    brief: Total SIP request time until final response.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.sip_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.sip_target
+
+  - id: metric.rtp.client.request.mos
+    type: metric
+    metric_name: rtp.client.request.mos
+    brief: Mean opinion score for RTP stream quality.
+    instrument: gauge
+    unit: "1{score}"
+    stability: development
+    extends: metric_attributes.thousandeyes.rtp_stream
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.rtp_target_agent
+
+  - id: metric.rtp.client.request.loss
+    type: metric
+    metric_name: rtp.client.request.loss
+    brief: RTP frame loss percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.rtp_stream
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.rtp_target_agent
+
+  - id: metric.rtp.client.request.discards
+    type: metric
+    metric_name: rtp.client.request.discards
+    brief: RTP frame discard percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.rtp_stream
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.rtp_target_agent
+
+  - id: metric.rtp.client.request.duration
+    type: metric
+    metric_name: rtp.client.request.duration
+    brief: RTP test duration.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.rtp_stream
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.rtp_target_agent
+
+  - id: metric.rtp.client.request.pdv
+    type: metric
+    metric_name: rtp.client.request.pdv
+    brief: RTP packet delay variation.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.rtp_stream
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.rtp_target_agent
+
+  - id: metric.api.duration
+    type: metric
+    metric_name: api.duration
+    brief: API test end-to-end duration.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+
+  - id: metric.api.completion
+    type: metric
+    metric_name: api.completion
+    brief: API test completion percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+
+  - id: metric.api.step.duration
+    type: metric
+    metric_name: api.step.duration
+    brief: API test step duration.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.api_step
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.api_step_target
+
+  - id: metric.api.step.completion
+    type: metric
+    metric_name: api.step.completion
+    brief: API test step completion percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.api_step
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.network_app.api_step_target

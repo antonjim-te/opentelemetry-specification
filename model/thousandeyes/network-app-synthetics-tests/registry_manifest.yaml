@@ -1,0 +1,4 @@
+name: thousandeyes-network-app-synthetics-tests
+description: ThousandEyes Network and App Synthetics Tests semantic conventions.
+semconv_version: 0.1.0
+schema_base_url: https://example.com/schemas/thousandeyes/network-app-synthetics-tests/

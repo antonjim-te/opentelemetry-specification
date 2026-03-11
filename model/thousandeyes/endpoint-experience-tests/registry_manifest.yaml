@@ -1,0 +1,4 @@
+name: thousandeyes-endpoint-experience-tests
+description: ThousandEyes Endpoint Experience Tests semantic conventions.
+semconv_version: 0.1.0
+schema_base_url: https://example.com/schemas/thousandeyes/endpoint-experience-tests/

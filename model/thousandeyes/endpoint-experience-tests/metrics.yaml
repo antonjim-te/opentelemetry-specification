@@ -1,0 +1,92 @@
+groups:
+  # Shared metric definitions used by Endpoint Experience - Tests.
+  # These metric names are also used by Network & App Synthetics tests.
+  - id: metric.http.server.request.availability
+    type: metric
+    metric_name: http.server.request.availability
+    brief: Percentage availability for HTTP server tests.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.tests.http_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.tests.http_target
+
+  - id: metric.http.server.throughput
+    type: metric
+    metric_name: http.server.throughput
+    brief: Throughput in bytes per second for HTTP server tests.
+    instrument: gauge
+    unit: "B/s"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.tests.http_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.tests.http_target
+
+  - id: metric.http.client.request.duration
+    type: metric
+    metric_name: http.client.request.duration
+    brief: Time to first byte for HTTP server tests.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.tests.http_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.tests.http_target
+
+  - id: metric.network.latency
+    type: metric
+    metric_name: network.latency
+    brief: Network round-trip latency.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.tests.agent_to_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.tests.network_target
+
+  - id: metric.network.loss
+    type: metric
+    metric_name: network.loss
+    brief: Network packet loss percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.tests.agent_to_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.tests.network_target
+
+  - id: metric.network.jitter
+    type: metric
+    metric_name: network.jitter
+    brief: Network jitter measured as standard deviation of round-trip times.
+    instrument: gauge
+    unit: "ms"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.tests.agent_to_server
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.test
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.tests.network_target

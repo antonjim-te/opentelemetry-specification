@@ -1,0 +1,5 @@
+templates:
+  - pattern: metrics_readme.md.j2
+    filter: '.groups | map(select(.type == "metric")) | sort_by(.metric_name)'
+    application_mode: single
+    file_name: metrics/README.md

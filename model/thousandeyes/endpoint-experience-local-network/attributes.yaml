@@ -1,0 +1,261 @@
+groups:
+  - id: registry.thousandeyes.attributes
+    type: attribute_group
+    brief: Common ThousandEyes attributes shared across sections.
+    attributes:
+      - id: thousandeyes.stream.id
+        type: string
+        stability: development
+        brief: UUID of the integration used to route the datapoint.
+        examples: ["123e4567-e89b-12d3-a456-426614174000"]
+      - id: thousandeyes.account.id
+        type: string
+        stability: development
+        brief: ThousandEyes account identifier.
+        examples: ["987654"]
+      - id: thousandeyes.test.domain
+        type: string
+        stability: development
+        brief: Domain origin of the test data.
+        examples: ["cea", "endpoint"]
+      - id: thousandeyes.test.id
+        type: string
+        stability: development
+        brief: ThousandEyes test identifier.
+        examples: ["246810"]
+      - id: thousandeyes.test.name
+        type: string
+        stability: development
+        brief: Human-readable ThousandEyes test name.
+        examples: ["Login page check"]
+      - id: thousandeyes.test.type
+        type: string
+        stability: development
+        brief: ThousandEyes test type.
+        examples: ["http-server"]
+      - id: thousandeyes.source.agent.id
+        type: string
+        stability: development
+        brief: Identifier of the source agent that ran the test.
+        examples: ["12345"]
+      - id: thousandeyes.source.agent.name
+        type: string
+        stability: development
+        brief: Source agent name.
+        examples: ["us-west-1a"]
+      - id: thousandeyes.source.agent.location
+        type: string
+        stability: development
+        brief: Source agent location.
+        examples: ["San Jose, CA, US"]
+      - id: thousandeyes.source.agent.geoname.id
+        type: string
+        stability: development
+        brief: GeoNames identifier for the source agent location.
+        examples: ["5392171"]
+      - id: thousandeyes.source.agent.geo.region.iso_code
+        type: string
+        stability: development
+        brief: ISO region code for the source agent.
+        examples: ["US-CA"]
+      - id: thousandeyes.source.agent.geo.country.iso_code
+        type: string
+        stability: development
+        brief: ISO country code for the source agent.
+        examples: ["US"]
+      - id: thousandeyes.source.agent.network.address
+        type: string
+        stability: development
+        brief: Source agent public network address.
+        examples: ["198.51.100.23"]
+      - id: thousandeyes.source.agent.local.network.address
+        type: string
+        stability: development
+        brief: Source agent local network address.
+        examples: ["10.0.1.25"]
+      - id: thousandeyes.source.agent.os.type
+        type: string
+        stability: development
+        brief: Source agent operating system type.
+        examples: ["Windows"]
+      - id: thousandeyes.source.agent.mac.address
+        type: string
+        stability: development
+        brief: Source agent MAC address.
+        examples: ["00:1C:42:2E:60:4A"]
+      - id: thousandeyes.source.agent.connection.type
+        type: string
+        stability: development
+        brief: Source agent connection type.
+        examples: ["Wireless"]
+      - id: thousandeyes.source.agent.network.org
+        type: string
+        stability: development
+        brief: Source agent network organization.
+        examples: ["Example ISP"]
+      - id: thousandeyes.source.agent.network.as.number
+        type: string
+        stability: development
+        brief: Source agent network autonomous system number.
+        examples: ["15169"]
+      - id: thousandeyes.source.agent.network.as.name
+        type: string
+        stability: development
+        brief: Source agent network autonomous system name.
+        examples: ["GOOGLE"]
+      - id: thousandeyes.data.version
+        type: string
+        stability: development
+        brief: ThousandEyes data model version.
+        examples: ["v2"]
+      - id: thousandeyes.permalink
+        type: string
+        stability: development
+        brief: URL to the ThousandEyes test instance.
+        examples: ["https://app.thousandeyes.com/tests/12345"]
+
+  - id: registry.thousandeyes.attributes.section_specific
+    type: attribute_group
+    brief: Section-specific attributes used by Endpoint Experience local network.
+    attributes:
+      - id: server.address
+        type: string
+        stability: development
+        brief: Server domain name or address.
+        examples: ["example.com"]
+      - id: server.port
+        type: int
+        stability: development
+        brief: Server port number.
+      - id: target.type
+        type: string
+        stability: development
+        brief: Endpoint local network target category.
+        examples: ["DNS"]
+      - id: vpn.vendor
+        type: string
+        stability: development
+        brief: VPN vendor for endpoint local VPN tests.
+        examples: ["Cisco AnyConnect"]
+      - id: client.address
+        type: string
+        stability: development
+        brief: Client IP address.
+        examples: ["192.0.2.14"]
+      - id: dns.question.name
+        type: string
+        stability: development
+        brief: Queried DNS name.
+        examples: ["www.example.com"]
+
+  - id: entity.thousandeyes.stream
+    type: entity
+    name: thousandeyes.stream
+    brief: ThousandEyes integration stream carrying telemetry.
+    stability: development
+    attributes:
+      - ref: thousandeyes.stream.id
+        requirement_level: required
+        role: identifying
+
+  - id: entity.thousandeyes.account
+    type: entity
+    name: thousandeyes.account
+    brief: ThousandEyes account producing the telemetry.
+    stability: development
+    attributes:
+      - ref: thousandeyes.account.id
+        requirement_level: required
+        role: identifying
+
+  - id: entity.thousandeyes.source.agent
+    type: entity
+    name: thousandeyes.source.agent
+    brief: Source agent that produced Endpoint Experience local network telemetry.
+    stability: development
+    attributes:
+      - ref: thousandeyes.source.agent.id
+        requirement_level: required
+        role: identifying
+      - ref: thousandeyes.source.agent.name
+        role: descriptive
+      - ref: thousandeyes.source.agent.location
+        role: descriptive
+      - ref: thousandeyes.source.agent.geoname.id
+        role: descriptive
+      - ref: thousandeyes.source.agent.geo.region.iso_code
+        role: descriptive
+      - ref: thousandeyes.source.agent.geo.country.iso_code
+        role: descriptive
+      - ref: thousandeyes.source.agent.network.address
+        requirement_level: opt_in
+        role: descriptive
+      - ref: thousandeyes.source.agent.local.network.address
+        requirement_level: opt_in
+        role: descriptive
+      - ref: thousandeyes.source.agent.os.type
+        requirement_level: opt_in
+        role: descriptive
+      - ref: thousandeyes.source.agent.mac.address
+        requirement_level: opt_in
+        role: descriptive
+      - ref: thousandeyes.source.agent.connection.type
+        requirement_level: opt_in
+        role: descriptive
+      - ref: thousandeyes.source.agent.network.org
+        requirement_level: opt_in
+        role: descriptive
+      - ref: thousandeyes.source.agent.network.as.number
+        requirement_level: opt_in
+        role: descriptive
+      - ref: thousandeyes.source.agent.network.as.name
+        requirement_level: opt_in
+        role: descriptive
+      - ref: thousandeyes.data.version
+        role: descriptive
+      - ref: thousandeyes.permalink
+        role: descriptive
+
+  - id: entity.thousandeyes.endpoint.local.target
+    type: entity
+    name: thousandeyes.endpoint.local.target
+    brief: Endpoint local network target context for proxy, gateway, and VPN categories.
+    stability: development
+    attributes:
+      - ref: server.address
+        requirement_level: required
+        role: identifying
+      - ref: server.port
+        requirement_level: opt_in
+        role: descriptive
+      - ref: vpn.vendor
+        requirement_level: opt_in
+        role: descriptive
+      - ref: client.address
+        requirement_level: opt_in
+        role: descriptive
+
+  - id: entity.thousandeyes.endpoint.local.dns_target
+    type: entity
+    name: thousandeyes.endpoint.local.dns_target
+    brief: Endpoint local DNS target context.
+    stability: development
+    attributes:
+      - ref: server.address
+        requirement_level: required
+        role: identifying
+      - ref: dns.question.name
+        requirement_level: opt_in
+        role: descriptive
+
+  - id: metric_attributes.thousandeyes.endpoint.local.network
+    type: attribute_group
+    brief: Datapoint attributes for endpoint local network metrics.
+    attributes:
+      - ref: target.type
+
+  - id: metric_attributes.thousandeyes.endpoint.local.dns
+    type: attribute_group
+    brief: Datapoint attributes for endpoint local DNS metrics.
+    attributes:
+      - ref: target.type

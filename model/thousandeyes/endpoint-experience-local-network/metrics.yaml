@@ -1,0 +1,92 @@
+groups:
+  - id: metric.network.latency
+    type: metric
+    metric_name: network.latency
+    brief: Endpoint local network latency.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.local.network
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.local.target
+
+  - id: metric.network.loss
+    type: metric
+    metric_name: network.loss
+    brief: Endpoint local network loss.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.local.network
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.local.target
+
+  - id: metric.dns.lookup.duration
+    type: metric
+    metric_name: dns.lookup.duration
+    brief: Endpoint local DNS lookup duration.
+    instrument: gauge
+    unit: "s"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.local.dns
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.local.dns_target
+
+  - id: metric.network.score
+    type: metric
+    metric_name: network.score
+    brief: Endpoint local aggregate network quality score.
+    instrument: gauge
+    unit: "1{score}"
+    stability: development
+    extends: metric_attributes.thousandeyes.endpoint.local.network
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.source.agent
+      - thousandeyes.endpoint.local.target
+
+  - id: metric.system.cpu.utilization
+    type: metric
+    metric_name: system.cpu.utilization
+    brief: Endpoint agent CPU utilization percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.source.agent
+
+  - id: metric.system.memory.utilization
+    type: metric
+    metric_name: system.memory.utilization
+    brief: Endpoint agent memory utilization percentage.
+    instrument: gauge
+    unit: "%"
+    stability: development
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.source.agent
+
+  - id: metric.thousandeyes.endpoint.agent.score
+    type: metric
+    metric_name: thousandeyes.endpoint.agent.score
+    brief: Endpoint agent health score derived from system metrics.
+    instrument: gauge
+    unit: "1{score}"
+    stability: development
+    entity_associations:
+      - thousandeyes.stream
+      - thousandeyes.account
+      - thousandeyes.source.agent
