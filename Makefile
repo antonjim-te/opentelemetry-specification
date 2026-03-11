@@ -12,6 +12,7 @@ LOCAL_TEMPLATES_ROOT ?= templates
 LOCAL_METRICS_TARGET ?= thousandeyes-metrics
 LOCAL_METRICS_TEMPLATE ?= $(LOCAL_TEMPLATES_ROOT)/$(LOCAL_METRICS_TARGET)/weaver.yaml
 METRICS_LINKER_SCRIPT ?= scripts/link_metrics_in_registry_readme.py
+METRIC_SPECS_PAGES_SCRIPT ?= scripts/generate_metric_specs_pages.py
 LOGS_LINKER_SCRIPT ?= scripts/link_event_specs_in_registry_readme.py
 TRACES_LINKER_SCRIPT ?= scripts/link_span_specs_in_registry_readme.py
 
@@ -33,12 +34,13 @@ V1_ENDPOINT_TESTS_DOCS ?= docs/v1/metrics/endpoint-experience-tests
 
 DOCKER_WEAVER = docker run --rm -v "$(CURDIR):/work" -w /work $(WEAVER_IMAGE)
 
-.PHONY: help templates validate validate-network-app validate-endpoint-tests validate-endpoint-local validate-logs validate-traces validate-v1-network-app validate-v1-endpoint-tests docs docs-generate docs-generate-network-app docs-generate-endpoint-tests docs-generate-endpoint-local docs-generate-logs docs-generate-traces docs-generate-v1-network-app docs-generate-v1-endpoint-tests docs-generate-metrics docs-generate-metrics-network-app docs-generate-metrics-endpoint-tests docs-generate-metrics-endpoint-local docs-generate-metrics-v1-network-app docs-generate-metrics-v1-endpoint-tests docs-link-metrics docs-link-logs docs-link-traces docs-update-inline docs-update-inline-network-app docs-update-inline-endpoint-tests docs-update-inline-endpoint-local docs-update-inline-logs docs-update-inline-traces docs-update-inline-v1-network-app docs-update-inline-v1-endpoint-tests clean-cache
+.PHONY: help templates validate validate-network-app validate-endpoint-tests validate-endpoint-local validate-logs validate-traces validate-v1-network-app validate-v1-endpoint-tests docs docs-generate docs-generate-network-app docs-generate-endpoint-tests docs-generate-endpoint-local docs-generate-logs docs-generate-traces docs-generate-v1-network-app docs-generate-v1-endpoint-tests docs-generate-metrics docs-generate-metric-spec-pages docs-generate-metrics-network-app docs-generate-metrics-endpoint-tests docs-generate-metrics-endpoint-local docs-generate-metrics-v1-network-app docs-generate-metrics-v1-endpoint-tests docs-link-metrics docs-link-logs docs-link-traces docs-update-inline docs-update-inline-network-app docs-update-inline-endpoint-tests docs-update-inline-endpoint-local docs-update-inline-logs docs-update-inline-traces docs-update-inline-v1-network-app docs-update-inline-v1-endpoint-tests clean-cache
 
 help:
 	@echo "Automation targets:"
 	@echo "  make validate           Validate all registries (v2 + v1, metrics + logs + traces)"
 	@echo "  make docs-generate      Generate registry index docs and metric index pages"
+	@echo "  make docs-generate-metric-spec-pages Ensure metric specs pages exist"
 	@echo "  make docs-link-metrics  Ensure section README links metrics and metric specs pages"
 	@echo "  make docs-link-logs     Ensure logs README links event specs page"
 	@echo "  make docs-link-traces   Ensure traces README links span specs page"
@@ -77,7 +79,7 @@ validate-v1-endpoint-tests:
 
 docs: validate docs-generate docs-update-inline
 
-docs-generate: templates docs-generate-network-app docs-generate-endpoint-tests docs-generate-endpoint-local docs-generate-logs docs-generate-traces docs-generate-v1-network-app docs-generate-v1-endpoint-tests docs-generate-metrics docs-link-metrics docs-link-logs docs-link-traces
+docs-generate: templates docs-generate-network-app docs-generate-endpoint-tests docs-generate-endpoint-local docs-generate-logs docs-generate-traces docs-generate-v1-network-app docs-generate-v1-endpoint-tests docs-generate-metrics docs-generate-metric-spec-pages docs-link-metrics docs-link-logs docs-link-traces
 
 docs-generate-network-app:
 	$(DOCKER_WEAVER) registry generate --registry="$(NETWORK_APP_REGISTRY)" --templates="$(SEMCONV_TEMPLATES_ROOT)" markdown "$(NETWORK_APP_DOCS)" --future
@@ -116,6 +118,14 @@ docs-generate-metrics-v1-network-app:
 
 docs-generate-metrics-v1-endpoint-tests:
 	$(DOCKER_WEAVER) registry generate --registry="$(V1_ENDPOINT_TESTS_REGISTRY)" --templates="$(LOCAL_TEMPLATES_ROOT)" "$(LOCAL_METRICS_TARGET)" "$(V1_ENDPOINT_TESTS_DOCS)" --future
+
+docs-generate-metric-spec-pages:
+	$(PYTHON) "$(METRIC_SPECS_PAGES_SCRIPT)" \
+		"$(NETWORK_APP_REGISTRY)" "$(NETWORK_APP_DOCS)/network-app-synthetics-tests-metrics.md" \
+		"$(ENDPOINT_TESTS_REGISTRY)" "$(ENDPOINT_TESTS_DOCS)/endpoint-experience-tests-metrics.md" \
+		"$(ENDPOINT_LOCAL_REGISTRY)" "$(ENDPOINT_LOCAL_DOCS)/endpoint-experience-local-network-metrics.md" \
+		"$(V1_NETWORK_APP_REGISTRY)" "$(V1_NETWORK_APP_DOCS)/network-app-synthetics-tests-metrics.md" \
+		"$(V1_ENDPOINT_TESTS_REGISTRY)" "$(V1_ENDPOINT_TESTS_DOCS)/endpoint-experience-tests-metrics.md"
 
 docs-link-metrics:
 	$(PYTHON) "$(METRICS_LINKER_SCRIPT)" "$(NETWORK_APP_DOCS)/README.md" "$(ENDPOINT_TESTS_DOCS)/README.md" "$(ENDPOINT_LOCAL_DOCS)/README.md" "$(V1_NETWORK_APP_DOCS)/README.md" "$(V1_ENDPOINT_TESTS_DOCS)/README.md"
