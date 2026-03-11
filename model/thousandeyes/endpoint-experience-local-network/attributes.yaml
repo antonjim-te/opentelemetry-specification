@@ -13,26 +13,6 @@ groups:
         stability: development
         brief: ThousandEyes account identifier.
         examples: ["987654"]
-      - id: thousandeyes.test.domain
-        type: string
-        stability: development
-        brief: Domain origin of the test data.
-        examples: ["cea", "endpoint"]
-      - id: thousandeyes.test.id
-        type: string
-        stability: development
-        brief: ThousandEyes test identifier.
-        examples: ["246810"]
-      - id: thousandeyes.test.name
-        type: string
-        stability: development
-        brief: Human-readable ThousandEyes test name.
-        examples: ["Login page check"]
-      - id: thousandeyes.test.type
-        type: string
-        stability: development
-        brief: ThousandEyes test type.
-        examples: ["http-server"]
       - id: thousandeyes.source.agent.id
         type: string
         stability: development

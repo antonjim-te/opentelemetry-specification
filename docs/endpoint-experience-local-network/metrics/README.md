@@ -7,10 +7,10 @@ This page lists metric semantic conventions resolved from this section registry.
 
 | Name | Instrument Type | Unit (UCUM) | Stability | Description |
 | --- | --- | --- | --- | --- |
-| `dns.lookup.duration` | gauge | `s` | development | Endpoint local DNS lookup duration. |
-| `network.latency` | gauge | `s` | development | Endpoint local network latency. |
-| `network.loss` | gauge | `%` | development | Endpoint local network loss. |
-| `network.score` | gauge | `1{score}` | development | Endpoint local aggregate network quality score. |
-| `system.cpu.utilization` | gauge | `%` | development | Endpoint agent CPU utilization percentage. |
-| `system.memory.utilization` | gauge | `%` | development | Endpoint agent memory utilization percentage. |
-| `thousandeyes.endpoint.agent.score` | gauge | `1{score}` | development | Endpoint agent health score derived from system metrics. |
+| `dns.lookup.duration` | gauge | `s` | development | DNS resolve time. |
+| `network.latency` | gauge | `s` | development | The maximum round-trip time for packets sent to the target. |
+| `network.loss` | gauge | `%` | development | Packet loss. |
+| `network.score` | gauge | `1{score}` | development | Score aggregated from latency, jitter, and loss scores. |
+| `system.cpu.utilization` | gauge | `%` | development | Percentage of CPU utilization. |
+| `system.memory.utilization` | gauge | `%` | development | Percentage of memory utilization. |
+| `thousandeyes.endpoint.agent.score` | gauge | `1{score}` | development | Score aggregated from CPU and memory scores. |

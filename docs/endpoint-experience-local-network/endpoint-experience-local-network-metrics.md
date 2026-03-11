@@ -12,7 +12,7 @@ This page documents metric semantic conventions for ThousandEyes Endpoint Experi
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `network.latency` | Gauge | `s` | Endpoint local network latency. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.endpoint.local.target`](entities/thousandeyes.md#thousandeyes-endpoint-local-target) |
+| `network.latency` | Gauge | `s` | The maximum round-trip time for packets sent to the target. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.endpoint.local.target`](entities/thousandeyes.md#thousandeyes-endpoint-local-target) |
 
 **Attributes:**
 
@@ -32,7 +32,7 @@ This page documents metric semantic conventions for ThousandEyes Endpoint Experi
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `network.loss` | Gauge | `%` | Endpoint local network loss. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.endpoint.local.target`](entities/thousandeyes.md#thousandeyes-endpoint-local-target) |
+| `network.loss` | Gauge | `%` | Packet loss. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.endpoint.local.target`](entities/thousandeyes.md#thousandeyes-endpoint-local-target) |
 
 **Attributes:**
 
@@ -52,7 +52,7 @@ This page documents metric semantic conventions for ThousandEyes Endpoint Experi
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `network.score` | Gauge | `1{score}` | Endpoint local aggregate network quality score. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.endpoint.local.target`](entities/thousandeyes.md#thousandeyes-endpoint-local-target) |
+| `network.score` | Gauge | `1{score}` | Score aggregated from latency, jitter, and loss scores. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.endpoint.local.target`](entities/thousandeyes.md#thousandeyes-endpoint-local-target) |
 
 **Attributes:**
 
@@ -74,7 +74,7 @@ This page documents metric semantic conventions for ThousandEyes Endpoint Experi
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `dns.lookup.duration` | Gauge | `s` | Endpoint local DNS lookup duration. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.endpoint.local.dns_target`](entities/thousandeyes.md#thousandeyes-endpoint-local-dns-target) |
+| `dns.lookup.duration` | Gauge | `s` | DNS resolve time. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.endpoint.local.dns_target`](entities/thousandeyes.md#thousandeyes-endpoint-local-dns-target) |
 
 **Attributes:**
 
@@ -96,7 +96,7 @@ This page documents metric semantic conventions for ThousandEyes Endpoint Experi
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `system.cpu.utilization` | Gauge | `%` | Endpoint agent CPU utilization percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
+| `system.cpu.utilization` | Gauge | `%` | Percentage of CPU utilization. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
 
 <!-- prettier-ignore-end -->
 <!-- END AUTOGENERATED TEXT -->
@@ -110,7 +110,7 @@ This page documents metric semantic conventions for ThousandEyes Endpoint Experi
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `system.memory.utilization` | Gauge | `%` | Endpoint agent memory utilization percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
+| `system.memory.utilization` | Gauge | `%` | Percentage of memory utilization. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
 
 <!-- prettier-ignore-end -->
 <!-- END AUTOGENERATED TEXT -->
@@ -124,7 +124,7 @@ This page documents metric semantic conventions for ThousandEyes Endpoint Experi
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `thousandeyes.endpoint.agent.score` | Gauge | `1{score}` | Endpoint agent health score derived from system metrics. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
+| `thousandeyes.endpoint.agent.score` | Gauge | `1{score}` | Score aggregated from CPU and memory scores. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
 
 <!-- prettier-ignore-end -->
 <!-- END AUTOGENERATED TEXT -->

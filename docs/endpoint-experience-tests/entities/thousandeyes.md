@@ -68,14 +68,6 @@
 | Description | [`thousandeyes.source.agent.geoname.id`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | GeoNames identifier for the source agent location. | `5392171` |
 | Description | [`thousandeyes.source.agent.location`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | Source agent location. | `San Jose, CA, US` |
 | Description | [`thousandeyes.source.agent.name`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Recommended` | string | Source agent name. | `us-west-1a` |
-| Description | [`thousandeyes.source.agent.connection.type`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Source agent connection type. | `Wireless` |
-| Description | [`thousandeyes.source.agent.local.network.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Source agent local network address. | `10.0.1.25` |
-| Description | [`thousandeyes.source.agent.mac.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Source agent MAC address. | `00:1C:42:2E:60:4A` |
-| Description | [`thousandeyes.source.agent.network.address`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Source agent public network address. | `198.51.100.23` |
-| Description | [`thousandeyes.source.agent.network.as.name`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Source agent network autonomous system name. | `GOOGLE` |
-| Description | [`thousandeyes.source.agent.network.as.number`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Source agent network autonomous system number. | `15169` |
-| Description | [`thousandeyes.source.agent.network.org`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Source agent network organization. | `Example ISP` |
-| Description | [`thousandeyes.source.agent.os.type`](/docs/registry/attributes/thousandeyes.md) | ![Development](https://img.shields.io/badge/-development-blue) | `Opt-In` | string | Source agent operating system type. | `Windows` |
 
 ## Thousandeyes Stream
 

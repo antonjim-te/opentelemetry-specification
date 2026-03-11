@@ -7,35 +7,35 @@ This page lists metric semantic conventions resolved from this section registry.
 
 | Name | Instrument Type | Unit (UCUM) | Stability | Description |
 | --- | --- | --- | --- | --- |
-| `api.completion` | gauge | `%` | development | API test completion percentage. |
-| `api.duration` | gauge | `s` | development | API test end-to-end duration. |
-| `api.step.completion` | gauge | `%` | development | API test step completion percentage. |
-| `api.step.duration` | gauge | `s` | development | API test step duration. |
-| `bgp.path_changes.count` | gauge | `1{PC}` | development | Number of BGP route path changes. |
-| `bgp.reachability` | gauge | `%` | development | BGP target reachability percentage. |
+| `api.completion` | gauge | `%` | development | Percentage of completion of all the steps of the API test. |
+| `api.duration` | gauge | `s` | development | The total time the API test took to run, including all steps. |
+| `api.step.completion` | gauge | `%` | development | Percentage of API test step completion. It is 100% if the step completes successfully and 0% if there are errors. |
+| `api.step.duration` | gauge | `s` | development | Time to complete the API test step. |
+| `bgp.path_changes.count` | gauge | `1{PC}` | development | Number of BGP route changes. |
+| `bgp.reachability` | gauge | `%` | development | Indicates if BGP route target is reachable. |
 | `bgp.updates.count` | gauge | `1{update}` | development | Number of BGP updates. |
-| `dns.lookup.availability` | gauge | `%` | development | DNS lookup availability percentage. |
-| `dns.lookup.duration` | gauge | `s` | development | DNS lookup duration. |
-| `dns.lookup.validity` | gauge | `%` | development | DNSSEC validity percentage. |
-| `ftp.client.request.duration` | gauge | `s` | development | FTP client request duration. |
-| `ftp.server.request.availability` | gauge | `%` | development | FTP request availability percentage. |
-| `ftp.server.throughput` | gauge | `B/s` | development | FTP throughput in bytes per second. |
-| `http.client.request.duration` | gauge | `s` | development | Time to first byte for HTTP server tests. |
-| `http.server.request.availability` | gauge | `%` | development | Percentage availability for HTTP server tests. |
-| `http.server.throughput` | gauge | `B/s` | development | Throughput in bytes per second for HTTP server tests. |
-| `network.jitter` | gauge | `ms` | development | Network jitter measured as standard deviation of round-trip times. |
-| `network.latency` | gauge | `s` | development | Network round-trip latency. |
-| `network.loss` | gauge | `%` | development | Network packet loss percentage. |
-| `rtp.client.request.discards` | gauge | `%` | development | RTP frame discard percentage. |
-| `rtp.client.request.duration` | gauge | `s` | development | RTP test duration. |
-| `rtp.client.request.loss` | gauge | `%` | development | RTP frame loss percentage. |
-| `rtp.client.request.mos` | gauge | `1{score}` | development | Mean opinion score for RTP stream quality. |
-| `rtp.client.request.pdv` | gauge | `ms` | development | RTP packet delay variation. |
-| `sip.client.request.duration` | gauge | `s` | development | SIP client request duration. |
-| `sip.client.request.total_time` | gauge | `s` | development | Total SIP request time until final response. |
-| `sip.server.request.availability` | gauge | `%` | development | SIP request availability percentage. |
-| `web.page_load.completion` | gauge | `%` | development | Page load completion percentage. |
-| `web.page_load.duration` | gauge | `s` | development | Page load duration. |
-| `web.transaction.completion` | gauge | `%` | development | Transaction completion percentage. |
-| `web.transaction.duration` | gauge | `s` | development | Transaction completion duration. |
-| `web.transaction.errors.count` | gauge | `1{error}` | development | Transaction error indicator count. |
+| `dns.lookup.availability` | gauge | `%` | development | Calculated depending on the errors reported during the test. If any error occurs, the availability is 0%; otherwise, it is 100%. |
+| `dns.lookup.duration` | gauge | `s` | development | DNS resolve time. |
+| `dns.lookup.validity` | gauge | `%` | development | Calculated depending on the errors reported during the test. If any error occurs, the validity is 0%; otherwise, it is 100%. |
+| `ftp.client.request.duration` | gauge | `s` | development | Total time it took to receive the first byte while executing the request. |
+| `ftp.server.request.availability` | gauge | `%` | development | Calculated depending on the errors reported during the test. If any error occurs, the availability is 0%; otherwise, it is 100%. |
+| `ftp.server.throughput` | gauge | `B/s` | development | Throughput of test in bytes per second. |
+| `http.client.request.duration` | gauge | `s` | development | Time to first byte (TTFB) as measured on the client. |
+| `http.server.request.availability` | gauge | `%` | development | Calculated based on the errors reported during the test. If any errors occur, the availability is 0%; otherwise, it is 100%. |
+| `http.server.throughput` | gauge | `B/s` | development | Throughput of test in bytes per second. |
+| `network.jitter` | gauge | `ms` | development | Standard deviation of the round-trip times. |
+| `network.latency` | gauge | `s` | development | The maximum round-trip time for packets sent to the target. |
+| `network.loss` | gauge | `%` | development | Packet loss. |
+| `rtp.client.request.discards` | gauge | `%` | development | Percentage of frames discarded, calculated from the number of discarded frames and the total number of frames. |
+| `rtp.client.request.duration` | gauge | `s` | development | Total time for the test round execution. |
+| `rtp.client.request.loss` | gauge | `%` | development | Percentage of frames lost, calculated from the number of lost frames and the total number of frames. |
+| `rtp.client.request.mos` | gauge | `1{score}` | development | Mean opinion score (MOS) for perceived voice quality. |
+| `rtp.client.request.pdv` | gauge | `ms` | development | Packet delay variation. |
+| `sip.client.request.duration` | gauge | `s` | development | Total time it took to receive the first byte while executing the request. |
+| `sip.client.request.total_time` | gauge | `s` | development | Total time it took until the last response was received. |
+| `sip.server.request.availability` | gauge | `%` | development | Calculated depending on the errors reported during the test. If any error occurs, the availability is 0%; otherwise, it is 100%. |
+| `web.page_load.completion` | gauge | `%` | development | Calculated depending on the errors reported during the test. If any error occurs, the completion is 0%; otherwise, it is 100%. |
+| `web.page_load.duration` | gauge | `s` | development | Time to fully load the page. |
+| `web.transaction.completion` | gauge | `%` | development | Percentage of transaction completion. It is 100% if the transaction completes successfully and 0% if there are errors. |
+| `web.transaction.duration` | gauge | `s` | development | The time it took the transaction to complete successfully. This metric is not reported if there are errors. |
+| `web.transaction.errors.count` | gauge | `1{error}` | development | Indicates whether an error occurred during the transaction. Returns 1 if an error occurs, and 0 if not. |

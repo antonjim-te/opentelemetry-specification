@@ -4,7 +4,7 @@ groups:
   - id: metric.http.server.request.availability
     type: metric
     metric_name: http.server.request.availability
-    brief: Percentage availability for HTTP server tests.
+    brief: Calculated based on the errors reported during the test. If any errors occur, the availability is 0%; otherwise, it is 100%.
     instrument: gauge
     unit: "%"
     stability: development
@@ -19,7 +19,7 @@ groups:
   - id: metric.http.server.throughput
     type: metric
     metric_name: http.server.throughput
-    brief: Throughput in bytes per second for HTTP server tests.
+    brief: Throughput of test in bytes per second.
     instrument: gauge
     unit: "B/s"
     stability: development
@@ -34,7 +34,7 @@ groups:
   - id: metric.http.client.request.duration
     type: metric
     metric_name: http.client.request.duration
-    brief: Time to first byte for HTTP server tests.
+    brief: Time to first byte (TTFB) as measured on the client.
     instrument: gauge
     unit: "s"
     stability: development
@@ -49,7 +49,7 @@ groups:
   - id: metric.network.latency
     type: metric
     metric_name: network.latency
-    brief: Network round-trip latency.
+    brief: The maximum round-trip time for packets sent to the target.
     instrument: gauge
     unit: "s"
     stability: development
@@ -64,7 +64,7 @@ groups:
   - id: metric.network.loss
     type: metric
     metric_name: network.loss
-    brief: Network packet loss percentage.
+    brief: Packet loss.
     instrument: gauge
     unit: "%"
     stability: development
@@ -79,7 +79,7 @@ groups:
   - id: metric.network.jitter
     type: metric
     metric_name: network.jitter
-    brief: Network jitter measured as standard deviation of round-trip times.
+    brief: Standard deviation of the round-trip times.
     instrument: gauge
     unit: "ms"
     stability: development

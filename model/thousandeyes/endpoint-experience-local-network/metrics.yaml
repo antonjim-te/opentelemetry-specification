@@ -2,7 +2,7 @@ groups:
   - id: metric.network.latency
     type: metric
     metric_name: network.latency
-    brief: Endpoint local network latency.
+    brief: The maximum round-trip time for packets sent to the target.
     instrument: gauge
     unit: "s"
     stability: development
@@ -16,7 +16,7 @@ groups:
   - id: metric.network.loss
     type: metric
     metric_name: network.loss
-    brief: Endpoint local network loss.
+    brief: Packet loss.
     instrument: gauge
     unit: "%"
     stability: development
@@ -30,7 +30,7 @@ groups:
   - id: metric.dns.lookup.duration
     type: metric
     metric_name: dns.lookup.duration
-    brief: Endpoint local DNS lookup duration.
+    brief: DNS resolve time.
     instrument: gauge
     unit: "s"
     stability: development
@@ -44,7 +44,7 @@ groups:
   - id: metric.network.score
     type: metric
     metric_name: network.score
-    brief: Endpoint local aggregate network quality score.
+    brief: Score aggregated from latency, jitter, and loss scores.
     instrument: gauge
     unit: "1{score}"
     stability: development
@@ -58,7 +58,7 @@ groups:
   - id: metric.system.cpu.utilization
     type: metric
     metric_name: system.cpu.utilization
-    brief: Endpoint agent CPU utilization percentage.
+    brief: Percentage of CPU utilization.
     instrument: gauge
     unit: "%"
     stability: development
@@ -70,7 +70,7 @@ groups:
   - id: metric.system.memory.utilization
     type: metric
     metric_name: system.memory.utilization
-    brief: Endpoint agent memory utilization percentage.
+    brief: Percentage of memory utilization.
     instrument: gauge
     unit: "%"
     stability: development
@@ -82,7 +82,7 @@ groups:
   - id: metric.thousandeyes.endpoint.agent.score
     type: metric
     metric_name: thousandeyes.endpoint.agent.score
-    brief: Endpoint agent health score derived from system metrics.
+    brief: Score aggregated from CPU and memory scores.
     instrument: gauge
     unit: "1{score}"
     stability: development

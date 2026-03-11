@@ -12,7 +12,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `http.server.request.availability` | Gauge | `%` | Percentage availability for HTTP server tests. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.http_target`](entities/thousandeyes.md#thousandeyes-network-app-http-target) |
+| `http.server.request.availability` | Gauge | `%` | Calculated based on the errors reported during the test. If any errors occur, the availability is 0%; otherwise, it is 100%. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.http_target`](entities/thousandeyes.md#thousandeyes-network-app-http-target) |
 
 **Attributes:**
 
@@ -33,7 +33,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `http.server.throughput` | Gauge | `B/s` | Throughput in bytes per second for HTTP server tests. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.http_target`](entities/thousandeyes.md#thousandeyes-network-app-http-target) |
+| `http.server.throughput` | Gauge | `B/s` | Throughput of test in bytes per second. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.http_target`](entities/thousandeyes.md#thousandeyes-network-app-http-target) |
 
 **Attributes:**
 
@@ -54,7 +54,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `http.client.request.duration` | Gauge | `s` | Time to first byte for HTTP server tests. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.http_target`](entities/thousandeyes.md#thousandeyes-network-app-http-target) |
+| `http.client.request.duration` | Gauge | `s` | Time to first byte (TTFB) as measured on the client. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.http_target`](entities/thousandeyes.md#thousandeyes-network-app-http-target) |
 
 **Attributes:**
 
@@ -77,7 +77,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `network.latency` | Gauge | `s` | Network round-trip latency. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.network_context`](entities/thousandeyes.md#thousandeyes-network-app-network-context) |
+| `network.latency` | Gauge | `s` | The maximum round-trip time for packets sent to the target. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.network_context`](entities/thousandeyes.md#thousandeyes-network-app-network-context) |
 
 **Attributes:**
 
@@ -97,7 +97,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `network.loss` | Gauge | `%` | Network packet loss percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.network_context`](entities/thousandeyes.md#thousandeyes-network-app-network-context) |
+| `network.loss` | Gauge | `%` | Packet loss. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.network_context`](entities/thousandeyes.md#thousandeyes-network-app-network-context) |
 
 **Attributes:**
 
@@ -117,7 +117,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `network.jitter` | Gauge | `ms` | Network jitter measured as standard deviation of round-trip times. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.network_context`](entities/thousandeyes.md#thousandeyes-network-app-network-context) |
+| `network.jitter` | Gauge | `ms` | Standard deviation of the round-trip times. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.network_context`](entities/thousandeyes.md#thousandeyes-network-app-network-context) |
 
 **Attributes:**
 
@@ -139,7 +139,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `bgp.path_changes.count` | Gauge | `1{PC}` | Number of BGP route path changes. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.network_app.bgp.route`](entities/thousandeyes.md#thousandeyes-network-app-bgp-route); [`thousandeyes.network_app.bgp.monitor`](entities/thousandeyes.md#thousandeyes-network-app-bgp-monitor) |
+| `bgp.path_changes.count` | Gauge | `1{PC}` | Number of BGP route changes. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.network_app.bgp.route`](entities/thousandeyes.md#thousandeyes-network-app-bgp-route); [`thousandeyes.network_app.bgp.monitor`](entities/thousandeyes.md#thousandeyes-network-app-bgp-monitor) |
 
 <!-- prettier-ignore-end -->
 <!-- END AUTOGENERATED TEXT -->
@@ -153,7 +153,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `bgp.reachability` | Gauge | `%` | BGP target reachability percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.network_app.bgp.route`](entities/thousandeyes.md#thousandeyes-network-app-bgp-route); [`thousandeyes.network_app.bgp.monitor`](entities/thousandeyes.md#thousandeyes-network-app-bgp-monitor) |
+| `bgp.reachability` | Gauge | `%` | Indicates if BGP route target is reachable. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.network_app.bgp.route`](entities/thousandeyes.md#thousandeyes-network-app-bgp-route); [`thousandeyes.network_app.bgp.monitor`](entities/thousandeyes.md#thousandeyes-network-app-bgp-monitor) |
 
 <!-- prettier-ignore-end -->
 <!-- END AUTOGENERATED TEXT -->
@@ -183,7 +183,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `web.transaction.duration` | Gauge | `s` | Transaction completion duration. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
+| `web.transaction.duration` | Gauge | `s` | The time it took the transaction to complete successfully. This metric is not reported if there are errors. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
 
 **Attributes:**
 
@@ -203,7 +203,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `web.transaction.errors.count` | Gauge | `1{error}` | Transaction error indicator count. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
+| `web.transaction.errors.count` | Gauge | `1{error}` | Indicates whether an error occurred during the transaction. Returns 1 if an error occurs, and 0 if not. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
 
 **Attributes:**
 
@@ -223,7 +223,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `web.transaction.completion` | Gauge | `%` | Transaction completion percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
+| `web.transaction.completion` | Gauge | `%` | Percentage of transaction completion. It is 100% if the transaction completes successfully and 0% if there are errors. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
 
 **Attributes:**
 
@@ -245,7 +245,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `dns.lookup.availability` | Gauge | `%` | DNS lookup availability percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.dns_query`](entities/thousandeyes.md#thousandeyes-network-app-dns-query) |
+| `dns.lookup.availability` | Gauge | `%` | Calculated depending on the errors reported during the test. If any error occurs, the availability is 0%; otherwise, it is 100%. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.dns_query`](entities/thousandeyes.md#thousandeyes-network-app-dns-query) |
 
 **Attributes:**
 
@@ -265,7 +265,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `dns.lookup.duration` | Gauge | `s` | DNS lookup duration. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.dns_query`](entities/thousandeyes.md#thousandeyes-network-app-dns-query) |
+| `dns.lookup.duration` | Gauge | `s` | DNS resolve time. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.dns_query`](entities/thousandeyes.md#thousandeyes-network-app-dns-query) |
 
 **Attributes:**
 
@@ -285,7 +285,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `dns.lookup.validity` | Gauge | `%` | DNSSEC validity percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.dns_query`](entities/thousandeyes.md#thousandeyes-network-app-dns-query) |
+| `dns.lookup.validity` | Gauge | `%` | Calculated depending on the errors reported during the test. If any error occurs, the validity is 0%; otherwise, it is 100%. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.dns_query`](entities/thousandeyes.md#thousandeyes-network-app-dns-query) |
 
 **Attributes:**
 
@@ -307,7 +307,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `web.page_load.duration` | Gauge | `s` | Page load duration. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.server_target`](entities/thousandeyes.md#thousandeyes-network-app-server-target) |
+| `web.page_load.duration` | Gauge | `s` | Time to fully load the page. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.server_target`](entities/thousandeyes.md#thousandeyes-network-app-server-target) |
 
 **Attributes:**
 
@@ -327,7 +327,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `web.page_load.completion` | Gauge | `%` | Page load completion percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.server_target`](entities/thousandeyes.md#thousandeyes-network-app-server-target) |
+| `web.page_load.completion` | Gauge | `%` | Calculated depending on the errors reported during the test. If any error occurs, the completion is 0%; otherwise, it is 100%. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.server_target`](entities/thousandeyes.md#thousandeyes-network-app-server-target) |
 
 **Attributes:**
 
@@ -349,7 +349,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `ftp.server.request.availability` | Gauge | `%` | FTP request availability percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.ftp_target`](entities/thousandeyes.md#thousandeyes-network-app-ftp-target) |
+| `ftp.server.request.availability` | Gauge | `%` | Calculated depending on the errors reported during the test. If any error occurs, the availability is 0%; otherwise, it is 100%. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.ftp_target`](entities/thousandeyes.md#thousandeyes-network-app-ftp-target) |
 
 **Attributes:**
 
@@ -370,7 +370,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `ftp.client.request.duration` | Gauge | `s` | FTP client request duration. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.ftp_target`](entities/thousandeyes.md#thousandeyes-network-app-ftp-target) |
+| `ftp.client.request.duration` | Gauge | `s` | Total time it took to receive the first byte while executing the request. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.ftp_target`](entities/thousandeyes.md#thousandeyes-network-app-ftp-target) |
 
 **Attributes:**
 
@@ -391,7 +391,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `ftp.server.throughput` | Gauge | `B/s` | FTP throughput in bytes per second. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.ftp_target`](entities/thousandeyes.md#thousandeyes-network-app-ftp-target) |
+| `ftp.server.throughput` | Gauge | `B/s` | Throughput of test in bytes per second. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.ftp_target`](entities/thousandeyes.md#thousandeyes-network-app-ftp-target) |
 
 **Attributes:**
 
@@ -414,7 +414,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `sip.server.request.availability` | Gauge | `%` | SIP request availability percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.sip_target`](entities/thousandeyes.md#thousandeyes-network-app-sip-target) |
+| `sip.server.request.availability` | Gauge | `%` | Calculated depending on the errors reported during the test. If any error occurs, the availability is 0%; otherwise, it is 100%. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.sip_target`](entities/thousandeyes.md#thousandeyes-network-app-sip-target) |
 
 **Attributes:**
 
@@ -435,7 +435,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `sip.client.request.duration` | Gauge | `s` | SIP client request duration. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.sip_target`](entities/thousandeyes.md#thousandeyes-network-app-sip-target) |
+| `sip.client.request.duration` | Gauge | `s` | Total time it took to receive the first byte while executing the request. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.sip_target`](entities/thousandeyes.md#thousandeyes-network-app-sip-target) |
 
 **Attributes:**
 
@@ -456,7 +456,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `sip.client.request.total_time` | Gauge | `s` | Total SIP request time until final response. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.sip_target`](entities/thousandeyes.md#thousandeyes-network-app-sip-target) |
+| `sip.client.request.total_time` | Gauge | `s` | Total time it took until the last response was received. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.sip_target`](entities/thousandeyes.md#thousandeyes-network-app-sip-target) |
 
 **Attributes:**
 
@@ -479,7 +479,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `rtp.client.request.mos` | Gauge | `1{score}` | Mean opinion score for RTP stream quality. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
+| `rtp.client.request.mos` | Gauge | `1{score}` | Mean opinion score (MOS) for perceived voice quality. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
 
 **Attributes:**
 
@@ -499,7 +499,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `rtp.client.request.loss` | Gauge | `%` | RTP frame loss percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
+| `rtp.client.request.loss` | Gauge | `%` | Percentage of frames lost, calculated from the number of lost frames and the total number of frames. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
 
 **Attributes:**
 
@@ -519,7 +519,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `rtp.client.request.discards` | Gauge | `%` | RTP frame discard percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
+| `rtp.client.request.discards` | Gauge | `%` | Percentage of frames discarded, calculated from the number of discarded frames and the total number of frames. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
 
 **Attributes:**
 
@@ -539,7 +539,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `rtp.client.request.duration` | Gauge | `s` | RTP test duration. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
+| `rtp.client.request.duration` | Gauge | `s` | Total time for the test round execution. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
 
 **Attributes:**
 
@@ -559,7 +559,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `rtp.client.request.pdv` | Gauge | `ms` | RTP packet delay variation. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
+| `rtp.client.request.pdv` | Gauge | `ms` | Packet delay variation. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.rtp_target_agent`](entities/thousandeyes.md#thousandeyes-network-app-rtp-target-agent) |
 
 **Attributes:**
 
@@ -581,7 +581,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `api.duration` | Gauge | `s` | API test end-to-end duration. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
+| `api.duration` | Gauge | `s` | The total time the API test took to run, including all steps. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
 
 <!-- prettier-ignore-end -->
 <!-- END AUTOGENERATED TEXT -->
@@ -595,7 +595,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `api.completion` | Gauge | `%` | API test completion percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
+| `api.completion` | Gauge | `%` | Percentage of completion of all the steps of the API test. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent) |
 
 <!-- prettier-ignore-end -->
 <!-- END AUTOGENERATED TEXT -->
@@ -609,7 +609,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `api.step.duration` | Gauge | `s` | API test step duration. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.api_step_target`](entities/thousandeyes.md#thousandeyes-network-app-api-step-target) |
+| `api.step.duration` | Gauge | `s` | Time to complete the API test step. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.api_step_target`](entities/thousandeyes.md#thousandeyes-network-app-api-step-target) |
 
 **Attributes:**
 
@@ -629,7 +629,7 @@ This page documents metric semantic conventions for ThousandEyes Network & App S
 
 | Name | Instrument Type | Unit (UCUM) | Description | Stability | Entity Associations |
 | -------- | --------------- | ----------- | -------------- | --------- | ------ |
-| `api.step.completion` | Gauge | `%` | API test step completion percentage. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.api_step_target`](entities/thousandeyes.md#thousandeyes-network-app-api-step-target) |
+| `api.step.completion` | Gauge | `%` | Percentage of API test step completion. It is 100% if the step completes successfully and 0% if there are errors. | ![Development](https://img.shields.io/badge/-development-blue) | [`thousandeyes.stream`](entities/thousandeyes.md#thousandeyes-stream); [`thousandeyes.account`](entities/thousandeyes.md#thousandeyes-account); [`thousandeyes.test`](entities/thousandeyes.md#thousandeyes-test); [`thousandeyes.source.agent`](entities/thousandeyes.md#thousandeyes-source-agent); [`thousandeyes.network_app.api_step_target`](entities/thousandeyes.md#thousandeyes-network-app-api-step-target) |
 
 **Attributes:**
 

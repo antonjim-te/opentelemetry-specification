@@ -7,9 +7,9 @@ This page lists metric semantic conventions resolved from this section registry.
 
 | Name | Instrument Type | Unit (UCUM) | Stability | Description |
 | --- | --- | --- | --- | --- |
-| `http.client.request.duration` | gauge | `s` | development | Time to first byte for HTTP server tests. |
-| `http.server.request.availability` | gauge | `%` | development | Percentage availability for HTTP server tests. |
-| `http.server.throughput` | gauge | `B/s` | development | Throughput in bytes per second for HTTP server tests. |
-| `network.jitter` | gauge | `ms` | development | Network jitter measured as standard deviation of round-trip times. |
-| `network.latency` | gauge | `s` | development | Network round-trip latency. |
-| `network.loss` | gauge | `%` | development | Network packet loss percentage. |
+| `http.client.request.duration` | gauge | `s` | development | Time to first byte (TTFB) as measured on the client. |
+| `http.server.request.availability` | gauge | `%` | development | Calculated based on the errors reported during the test. If any errors occur, the availability is 0%; otherwise, it is 100%. |
+| `http.server.throughput` | gauge | `B/s` | development | Throughput of test in bytes per second. |
+| `network.jitter` | gauge | `ms` | development | Standard deviation of the round-trip times. |
+| `network.latency` | gauge | `s` | development | The maximum round-trip time for packets sent to the target. |
+| `network.loss` | gauge | `%` | development | Packet loss. |

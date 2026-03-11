@@ -32,10 +32,6 @@ Common ThousandEyes attributes shared across sections.
 | <a id="thousandeyes-source-agent-network-org" href="#thousandeyes-source-agent-network-org">`thousandeyes.source.agent.network.org`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Source agent network organization. | `Example ISP` |
 | <a id="thousandeyes-source-agent-os-type" href="#thousandeyes-source-agent-os-type">`thousandeyes.source.agent.os.type`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Source agent operating system type. | `Windows` |
 | <a id="thousandeyes-stream-id" href="#thousandeyes-stream-id">`thousandeyes.stream.id`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | UUID of the integration used to route the datapoint. | `123e4567-e89b-12d3-a456-426614174000` |
-| <a id="thousandeyes-test-domain" href="#thousandeyes-test-domain">`thousandeyes.test.domain`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Domain origin of the test data. | `cea`; `endpoint` |
-| <a id="thousandeyes-test-id" href="#thousandeyes-test-id">`thousandeyes.test.id`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | ThousandEyes test identifier. | `246810` |
-| <a id="thousandeyes-test-name" href="#thousandeyes-test-name">`thousandeyes.test.name`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | Human-readable ThousandEyes test name. | `Login page check` |
-| <a id="thousandeyes-test-type" href="#thousandeyes-test-type">`thousandeyes.test.type`</a> | ![Development](https://img.shields.io/badge/-development-blue) | string | ThousandEyes test type. | `http-server` |
 
 ## Thousandeyes Attributes Section Specific Attributes
 

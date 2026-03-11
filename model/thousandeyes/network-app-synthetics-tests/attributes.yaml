@@ -63,46 +63,6 @@ groups:
         stability: development
         brief: ISO country code for the source agent.
         examples: ["US"]
-      - id: thousandeyes.source.agent.network.address
-        type: string
-        stability: development
-        brief: Source agent public network address.
-        examples: ["198.51.100.23"]
-      - id: thousandeyes.source.agent.local.network.address
-        type: string
-        stability: development
-        brief: Source agent local network address.
-        examples: ["10.0.1.25"]
-      - id: thousandeyes.source.agent.os.type
-        type: string
-        stability: development
-        brief: Source agent operating system type.
-        examples: ["Windows"]
-      - id: thousandeyes.source.agent.mac.address
-        type: string
-        stability: development
-        brief: Source agent MAC address.
-        examples: ["00:1C:42:2E:60:4A"]
-      - id: thousandeyes.source.agent.connection.type
-        type: string
-        stability: development
-        brief: Source agent connection type.
-        examples: ["Wireless"]
-      - id: thousandeyes.source.agent.network.org
-        type: string
-        stability: development
-        brief: Source agent network organization.
-        examples: ["Example ISP"]
-      - id: thousandeyes.source.agent.network.as.number
-        type: string
-        stability: development
-        brief: Source agent network autonomous system number.
-        examples: ["15169"]
-      - id: thousandeyes.source.agent.network.as.name
-        type: string
-        stability: development
-        brief: Source agent network autonomous system name.
-        examples: ["GOOGLE"]
       - id: thousandeyes.data.version
         type: string
         stability: development
@@ -221,16 +181,6 @@ groups:
         type: int
         stability: development
         brief: API test step identifier.
-      - id: vpn.vendor
-        type: string
-        stability: development
-        brief: VPN vendor for endpoint local VPN tests.
-        examples: ["Cisco AnyConnect"]
-      - id: client.address
-        type: string
-        stability: development
-        brief: Client IP address.
-        examples: ["192.0.2.14"]
       - id: error.type
         type: string
         stability: development
@@ -248,11 +198,6 @@ groups:
         type: int
         stability: development
         brief: SIP response status code.
-      - id: target.type
-        type: string
-        stability: development
-        brief: Endpoint local network target category.
-        examples: ["DNS"]
 
   - id: entity.thousandeyes.stream
     type: entity
@@ -312,30 +257,6 @@ groups:
       - ref: thousandeyes.source.agent.geo.region.iso_code
         role: descriptive
       - ref: thousandeyes.source.agent.geo.country.iso_code
-        role: descriptive
-      - ref: thousandeyes.source.agent.network.address
-        requirement_level: opt_in
-        role: descriptive
-      - ref: thousandeyes.source.agent.local.network.address
-        requirement_level: opt_in
-        role: descriptive
-      - ref: thousandeyes.source.agent.os.type
-        requirement_level: opt_in
-        role: descriptive
-      - ref: thousandeyes.source.agent.mac.address
-        requirement_level: opt_in
-        role: descriptive
-      - ref: thousandeyes.source.agent.connection.type
-        requirement_level: opt_in
-        role: descriptive
-      - ref: thousandeyes.source.agent.network.org
-        requirement_level: opt_in
-        role: descriptive
-      - ref: thousandeyes.source.agent.network.as.number
-        requirement_level: opt_in
-        role: descriptive
-      - ref: thousandeyes.source.agent.network.as.name
-        requirement_level: opt_in
         role: descriptive
 
   - id: entity.thousandeyes.network_app.http_target
