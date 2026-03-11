@@ -59,17 +59,17 @@ make docs-update-inline
 
 For each Data Model v2 metrics section, `make docs` generates:
 
-- `docs/v2/<section>/attributes/*` via upstream semantic-conventions templates
-- `docs/v2/<section>/metrics/README.md` via local metrics template target
-- `docs/v2/<section>/<section>-metrics.md` with upstream-style rendered metric sections via `update-markdown`
-- `docs/v2/<section>/README.md` with links to Attributes, Entities, Metrics, and Metric Specs
+- `docs/v2/metrics/<section>/attributes/*` via upstream semantic-conventions templates
+- `docs/v2/metrics/<section>/metrics/README.md` via local metrics template target
+- `docs/v2/metrics/<section>/<section>-metrics.md` with upstream-style rendered metric sections via `update-markdown`
+- `docs/v2/metrics/<section>/README.md` with links to Attributes, Entities, Metrics, and Metric Specs
 
 For each Data Model v1 metrics section, `make docs` generates:
 
-- `docs/v1/<section>/attributes/*` via upstream semantic-conventions templates
-- `docs/v1/<section>/metrics/README.md` via local metrics template target
-- `docs/v1/<section>/<section>-metrics.md` with upstream-style rendered metric sections via `update-markdown`
-- `docs/v1/<section>/README.md` with links to Attributes, Entities, Metrics, and Metric Specs
+- `docs/v1/metrics/<section>/attributes/*` via upstream semantic-conventions templates
+- `docs/v1/metrics/<section>/metrics/README.md` via local metrics template target
+- `docs/v1/metrics/<section>/<section>-metrics.md` with upstream-style rendered metric sections via `update-markdown`
+- `docs/v1/metrics/<section>/README.md` with links to Attributes, Entities, Metrics, and Metric Specs
 
 For logs, `make docs` generates:
 

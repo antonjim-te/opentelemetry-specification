@@ -23,13 +23,13 @@ TRACES_REGISTRY ?= model/thousandeyes/v2/traces
 V1_NETWORK_APP_REGISTRY ?= model/thousandeyes/v1/metrics/network-app-synthetics-tests
 V1_ENDPOINT_TESTS_REGISTRY ?= model/thousandeyes/v1/metrics/endpoint-experience-tests
 
-NETWORK_APP_DOCS ?= docs/v2/network-app-synthetics-tests
-ENDPOINT_TESTS_DOCS ?= docs/v2/endpoint-experience-tests
-ENDPOINT_LOCAL_DOCS ?= docs/v2/endpoint-experience-local-network
+NETWORK_APP_DOCS ?= docs/v2/metrics/network-app-synthetics-tests
+ENDPOINT_TESTS_DOCS ?= docs/v2/metrics/endpoint-experience-tests
+ENDPOINT_LOCAL_DOCS ?= docs/v2/metrics/endpoint-experience-local-network
 LOGS_DOCS ?= docs/v2/logs
 TRACES_DOCS ?= docs/v2/traces
-V1_NETWORK_APP_DOCS ?= docs/v1/network-app-synthetics-tests
-V1_ENDPOINT_TESTS_DOCS ?= docs/v1/endpoint-experience-tests
+V1_NETWORK_APP_DOCS ?= docs/v1/metrics/network-app-synthetics-tests
+V1_ENDPOINT_TESTS_DOCS ?= docs/v1/metrics/endpoint-experience-tests
 
 DOCKER_WEAVER = docker run --rm -v "$(CURDIR):/work" -w /work $(WEAVER_IMAGE)
 
