@@ -1,0 +1,30 @@
+name: Validate Registries
+
+on:
+  pull_request:
+    paths:
+      - "model/**"
+      - "Makefile"
+      - ".github/workflows/validate.yml"
+  push:
+    branches:
+      - "main"
+    paths:
+      - "model/**"
+      - "Makefile"
+      - ".github/workflows/validate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Weaver Registry Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate registries
+        run: make validate
